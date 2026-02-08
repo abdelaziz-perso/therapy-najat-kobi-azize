@@ -1,42 +1,39 @@
-import React, { useState } from 'react';
-import logo from '../assets/logo-CPXK47SO.png';
+import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/Najat Kobi Therapy Practice Logo.png';
 
 const Navbar: React.FC = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const location = useLocation();
+    const isHome = location.pathname === '/';
+
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        if (isHome) {
+            e.preventDefault();
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
 
     return (
         <nav className="navbar">
             <div className="container navbar-content">
                 <div className="logo-circle">
-                    <img src={logo} alt="Meryem Abouhafs Logo" />
+                    <Link to="/">
+                        <img src={logo} alt="Najat Kobi Therapy Practice Logo" />
+                    </Link>
                 </div>
 
                 <ul className="nav-links">
-                    <li><a href="/" className="active">Accueil</a></li>
-                    <li><a href="/a-propos">A propos</a></li>
-                    <li
-                        className="dropdown-trigger"
-                        onMouseEnter={() => setIsDropdownOpen(true)}
-                        onMouseLeave={() => setIsDropdownOpen(false)}
-                    >
-                        <a href="/consultations">
-                            consultations <span className={`arrow ${isDropdownOpen ? 'up' : 'down'}`}>∨</span>
-                        </a>
-                        {isDropdownOpen && (
-                            <ul className="dropdown-menu">
-                                <li><a href="/enfant">Thérapie pour enfant</a></li>
-                                <li><a href="/adolescent">thérapie pour adolescent</a></li>
-                                <li><a href="/adulte">Thérapie pour adulte</a></li>
-                                <li><a href="/bilan">Bilan neuropsychologique</a></li>
-                            </ul>
-                        )}
-                    </li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/rdv">Prendre RDV</a></li>
+                    <li><Link to="/" className={isHome ? "active" : ""}>Accueil</Link></li>
+                    <li><Link to="/a-propos" className={location.pathname === '/a-propos' ? "active" : ""}>A propos</Link></li>
+                    <li><Link to="/#deroulement" onClick={(e) => handleLinkClick(e as any, 'deroulement')}>Déroulement</Link></li>
+                    <li><Link to="/#services" onClick={(e) => handleLinkClick(e as any, 'services')}>consultations</Link></li>
+                    <li><Link to="/#contact" onClick={(e) => handleLinkClick(e as any, 'contact')}>Prendre RDV</Link></li>
                 </ul>
 
                 <div className="social-icons">
-                    <a href="#" className="social-icon">
+                    <a href="https://www.instagram.com/kobi.najat/" target="_blank" rel="noopener noreferrer" className="social-icon">
                         <i className="fab fa-instagram"></i>
                     </a>
                     <a href="#" className="social-icon">

@@ -11,7 +11,7 @@ const FAQSection: React.FC = () => {
     const faqData: FAQItem[] = [
         {
             question: "Comment puis-je prendre mon premier rendez-vous ?",
-            answer: "Lorsque vous cliquez sur le bouton « Prendre RDV », il vous dirigera directement vers le lien de réservation, où vous choisissez le créneau qui vous convient, puis vous recevrez un email et un sms de confirmation."
+            answer: "Lorsque vous cliquez sur le bouton « Prendre RDV », il vous dirigera directement vers le formulaire de contact, où vous pourrez nous envoyer votre demande de rendez-vous."
         },
         {
             question: "vous proposez vos services en quelles langues ?",

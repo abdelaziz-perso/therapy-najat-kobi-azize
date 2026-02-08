@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import imgLarge from '../assets/authentic-scene-young-person-undergoing-psychological-therapy.jpg';
 import imgTopRight from '../assets/medium-shot-couple-therapy.jpg';
 import imgBottomRight from '../assets/close-up-girl-therapy-session-with-parents.jpg';
 
 const SupportSection: React.FC = () => {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+
     return (
-        <section className="support-section">
+        <section ref={sectionRef} className="support-section">
             <div className="container support-container">
                 <div className="support-text">
                     <h2 className="support-title">Nous sommes là pour vous aider</h2>

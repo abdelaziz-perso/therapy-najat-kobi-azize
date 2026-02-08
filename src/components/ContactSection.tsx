@@ -1,9 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import contactBg from '../assets/doctor-offering-medical-teleconsultation.jpg';
 
 const ContactSection: React.FC = () => {
+    const [formData, setFormData] = useState({
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
+        date: '',
+        time: '',
+        message: ''
+    });
+
+    const [status, setStatus] = useState<{
+        type: 'success' | 'error' | null;
+        message: string;
+    }>({ type: null, message: '' });
+
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setStatus({ type: null, message: '' });
+
+        try {
+            const response = await fetch('/send_email.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setStatus({ type: 'success', message: result.message });
+                setFormData({
+                    firstname: '',
+                    lastname: '',
+                    phone: '',
+                    email: '',
+                    date: '',
+                    time: '',
+                    message: ''
+                });
+            } else {
+                setStatus({ type: 'error', message: result.message || 'Une erreur est survenue.' });
+            }
+        } catch (error) {
+            setStatus({ type: 'error', message: 'Impossible de contacter le serveur.' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
-        <section className="contact-section" style={{ backgroundImage: `url(${contactBg})` }}>
+        <section id="contact" className="contact-section" style={{ backgroundImage: `url(${contactBg})` }}>
             <div className="contact-overlay"></div>
             <div className="container contact-container">
                 <div className="contact-header">
@@ -13,42 +72,98 @@ const ContactSection: React.FC = () => {
 
                 <div className="contact-card">
                     <div className="contact-form-side">
-                        <form className="contact-form">
+                        <form className="contact-form" onSubmit={handleSubmit}>
                             <div className="form-row">
                                 <div className="form-group">
                                     <label>Prénom</label>
-                                    <input type="text" placeholder="Prénom" />
+                                    <input
+                                        type="text"
+                                        name="firstname"
+                                        placeholder="Prénom"
+                                        value={formData.firstname}
+                                        onChange={handleChange}
+                                        required
+                                    />
                                 </div>
                                 <div className="form-group">
                                     <label>Nom</label>
-                                    <input type="text" placeholder="Nom" />
+                                    <input
+                                        type="text"
+                                        name="lastname"
+                                        placeholder="Nom"
+                                        value={formData.lastname}
+                                        onChange={handleChange}
+                                        required
+                                    />
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="form-group">
                                     <label>Téléphone</label>
-                                    <input type="tel" placeholder="Téléphone" />
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        placeholder="Téléphone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                                 <div className="form-group">
                                     <label>Email</label>
-                                    <input type="email" placeholder="Email" />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                    />
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="form-group">
                                     <label>Date</label>
-                                    <input type="date" placeholder="jj/mm/aaaa" />
+                                    <input
+                                        type="date"
+                                        name="date"
+                                        placeholder="jj/mm/aaaa"
+                                        value={formData.date}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                                 <div className="form-group">
                                     <label>Temps</label>
-                                    <input type="time" placeholder="--:--" />
+                                    <input
+                                        type="time"
+                                        name="time"
+                                        placeholder="--:--"
+                                        value={formData.time}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                             </div>
                             <div className="form-group full-width">
                                 <label>Message</label>
-                                <textarea placeholder="Message" rows={4}></textarea>
+                                <textarea
+                                    name="message"
+                                    placeholder="Message"
+                                    rows={4}
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    required
+                                ></textarea>
                             </div>
-                            <button type="submit" className="btn-send">envoyer</button>
+
+                            {status.type && (
+                                <div className={`form-status ${status.type}`}>
+                                    <i className={status.type === 'success' ? 'fas fa-circle-check' : 'fas fa-circle-exclamation'}></i>
+                                    <span>{status.message}</span>
+                                </div>
+                            )}
+
+                            <button type="submit" className="btn-send" disabled={loading}>
+                                {loading ? 'Envoi...' : 'envoyer'}
+                            </button>
                         </form>
                     </div>
 
@@ -63,7 +178,7 @@ const ContactSection: React.FC = () => {
                                 </div>
                                 <div className="info-text">
                                     <span className="info-label">ASSISTANCE À LA CLIENTÈLE</span>
-                                    <a href="tel:+212643055155" className="info-value">+212 643-055155</a>
+                                    <a href="tel:+212661338197" className="info-value">06 61 33 81 97</a>
                                 </div>
                             </div>
 
@@ -72,8 +187,7 @@ const ContactSection: React.FC = () => {
                                     <i className="fas fa-location-dot"></i>
                                 </div>
                                 <div className="info-text">
-                                    <span className="info-label">ASSISTANCE PAR LOCALISATION</span>
-                                    <span className="info-value">3 Av. TanTan, Casablanca 20100</span>
+                                    <span className="info-value">Lotissemebt Arsat Lakbir, immeuble 16 le noble Etage 5 appartement 23</span>
                                 </div>
                             </div>
 
@@ -83,7 +197,7 @@ const ContactSection: React.FC = () => {
                                 </div>
                                 <div className="info-text">
                                     <span className="info-label">ASSISTANCE PAR E-MAIL</span>
-                                    <a href="mailto:infos@psychologue-meryemabouhafs.com" className="info-value">infos@psychologue-meryemabouhafs.com</a>
+                                    <a href="mailto:najatkobi7@gmail.com" className="info-value">najatkobi7@gmail.com</a>
                                 </div>
                             </div>
                         </div>

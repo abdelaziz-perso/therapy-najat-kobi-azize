@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const AppointmentSection: React.FC = () => {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+
     return (
-        <section className="appointment-section">
+        <section ref={sectionRef} className="appointment-section">
             <div className="container">
                 <div className="appointment-header">
                     <div className="sparkles">
@@ -35,7 +58,7 @@ const AppointmentSection: React.FC = () => {
                         <h3>Au cabinet</h3>
                         <div className="card-divider"></div>
                         <div className="cabinet-info">
-                            <p>Le cabinet est situé au 3 Av. TanTan, Casablanca.</p>
+                            <p>Le cabinet est situé au Lotissemebt Arsat Lakbir, immeuble 16 le noble Etage 5 appartement 23.</p>
                             <a href="#" className="location-link">LOCALISATION ICI</a>
                             <p>
                                 Vous pouvez prendre rendez-vous lundi, mardi, mercredi, jeudi et samedi entre 10h et 17h.
@@ -46,7 +69,7 @@ const AppointmentSection: React.FC = () => {
                 </div>
 
                 <div className="appointment-footer">
-                    <button className="btn-outline">Prendre RDV</button>
+                    <a href="#contact" className="btn-outline">Prendre RDV</a>
                 </div>
             </div>
         </section>
