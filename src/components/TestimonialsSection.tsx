@@ -92,7 +92,7 @@ const TestimonialsSection: React.FC = () => {
             <div className="container testimonials-container">
                 <div className="testimonials-header">
                     <div className="header-bg-image">
-                        <img src={testimonialBg} alt="Background" />
+                        <img src={testimonialBg} alt="Background" loading="lazy" decoding="async" />
                         <div className="header-box">
                             <h3>Pourquoi choisir notre service ?</h3>
                             <p>Ce que nos patients disent de nous :</p>

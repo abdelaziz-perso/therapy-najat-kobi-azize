@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
             <div className="container footer-top">
                 <div className="footer-logo-section">
                     <div className="footer-logo-circle">
-                        <img src={logo} alt="Najat Kobi Therapy Practice Logo" />
+                        <img src={logo} alt="Najat Kobi Therapy Practice Logo" loading="lazy" decoding="async" />
                     </div>
                 </div>
 

@@ -72,7 +72,7 @@ const ServicesGrid: React.FC = () => {
                         return (
                             <div key={index} className={`grid-item ${item.type}-item ${item.className || ''}`}>
                                 {item.type === 'image' ? (
-                                    <img src={item.src} alt={item.alt} />
+                                    <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
                                 ) : (
                                     <div className="text-card">
                                         <h3>{item.title}</h3>

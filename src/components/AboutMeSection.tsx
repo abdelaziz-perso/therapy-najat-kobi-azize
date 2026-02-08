@@ -42,7 +42,7 @@ const AboutMeSection: React.FC = () => {
                 </div>
 
                 <div className="about-me-image">
-                    <img src={psychologistImg} alt="Meryem Abouhafs" />
+                    <img src={psychologistImg} alt="Meryem Abouhafs" loading="lazy" decoding="async" />
                 </div>
             </div>
         </section>

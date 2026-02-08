@@ -57,14 +57,14 @@ const SupportSection: React.FC = () => {
 
                 <div className="support-images">
                     <div className="image-large">
-                        <img src={imgLarge} alt="Séance de thérapie individuelle" />
+                        <img src={imgLarge} alt="Séance de thérapie individuelle" loading="lazy" decoding="async" />
                     </div>
                     <div className="image-stack">
                         <div className="image-small">
-                            <img src={imgTopRight} alt="Thérapie de couple" />
+                            <img src={imgTopRight} alt="Thérapie de couple" loading="lazy" decoding="async" />
                         </div>
                         <div className="image-small">
-                            <img src={imgBottomRight} alt="Thérapie familiale" />
+                            <img src={imgBottomRight} alt="Thérapie familiale" loading="lazy" decoding="async" />
                         </div>
                     </div>
                 </div>

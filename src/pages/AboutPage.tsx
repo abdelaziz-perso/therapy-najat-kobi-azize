@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import seaboat from '../assets/seaboat.jpg';
+import seaboat from '../assets/seaboat1.jpg';
 import portraitStanding from '../assets/full-shot-psychologist-her-office.jpg'; // Using existing for now
 import portraitSitting from '../assets/full-shot-psychologist-her-office.jpg'; // Using existing for now
 import TestimonialsSection from '../components/TestimonialsSection';
