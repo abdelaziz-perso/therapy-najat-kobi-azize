@@ -42,10 +42,15 @@ const AboutPage: React.FC = () => {
     return (
         <div className="about-page">
             {/* Capture 1: Simple Hero */}
-            <section
-                className="about-hero"
-                style={{ backgroundImage: `url(${seaboat})` }}
-            >
+            <section className="about-hero">
+                <img
+                    src={seaboat}
+                    alt="Najat Kobi About Background"
+                    className="hero-bg-img"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="async"
+                />
                 <div className="hero-overlay"></div>
                 <div className="container about-hero-content">
                     <h1 ref={addToRefs}>Najat KOBI</h1>

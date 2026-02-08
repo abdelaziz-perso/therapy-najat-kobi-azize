@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
             <div className="container navbar-content">
                 <div className="logo-circle">
                     <Link to="/">
-                        <img src={logo} alt="Najat Kobi Therapy Practice Logo" />
+                        <img src={logo} alt="Najat Kobi Therapy Practice Logo" fetchPriority="high" />
                     </Link>
                 </div>
 

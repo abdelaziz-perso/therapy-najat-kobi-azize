@@ -3,10 +3,15 @@ import background from '../assets/seaboat1.jpg';
 
 const Hero: React.FC = () => {
     return (
-        <section
-            className="hero"
-            style={{ backgroundImage: `url(${background})` }}
-        >
+        <section className="hero">
+            <img
+                src={background}
+                alt="Najat Kobi Hero Background"
+                className="hero-bg-img"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+            />
             <div className="hero-overlay"></div>
             <div className="container hero-content">
                 <h1 className="hero-title">Najat Kobi, psychologue Casablanca</h1>
