@@ -44,8 +44,8 @@ const AboutPage: React.FC = () => {
             {/* Capture 1: Simple Hero */}
             <section className="about-hero">
                 <div className="container about-hero-content">
-                    <h1 ref={addToRefs}>Najat KOBI</h1>
-                    <p ref={addToRefs}>Psychologue et psychothérapeute,<br />en ligne et à Casablanca</p>
+                    <h1>Najat KOBI</h1>
+                    <p ref={addToRefs}>Thérapeute de couple,<br />en ligne et à Casablanca</p>
                 </div>
             </section>
 
@@ -54,20 +54,20 @@ const AboutPage: React.FC = () => {
                 <div className="container about-detail-container">
                     <div className="about-detail-text">
                         <h2 className="section-label">Qui suis-je ?</h2>
-                        <h3>Najat Kobi, psychologue clinicienne et psychothérapeute.</h3>
+                        <h3>Najat Kobi, thérapeute de couple.</h3>
                         <p>
-                            Avec plusieurs années d'expérience en psychothérapie, nous avons aidé de nombreuses personnes à surmonter leurs défis et à retrouver un bien-être émotionnel. Nous avons accompagné des individus souffrant d'anxiété, de dépression, de traumatismes, d'épuisement professionnel en leur offrant un chemin vers la guérison lorsqu'ils se sentaient perdus. Nous avons également soutenu des personnes confrontées au deuil, aux difficultés relationnelles, aux difficultés scolaires et aux grandes transitions de vie.
+                            Spécialisée dans l'accompagnement des couples, j'ai aidé de nombreux duos à surmonter leurs défis et à retrouver une harmonie relationnelle. Mon parcours m'a amenée à me concentrer exclusivement sur les dynamiques de couple, car je crois fermement que la qualité de nos relations définit la qualité de notre vie.
                         </p>
                         <p className="bold-text">Nous pouvons vous aider aussi.</p>
                         <p>
-                            Nous savons que gérer sa santé mentale peut sembler difficile, quel que soit l’âge. C’est pourquoi nous sommes là : pour vous offrir le soutien, les soins et les stratégies dont vous avez besoin.
+                            Je sais que traverser une crise conjugale ou des tensions répétées peut être épuisant. C'est pourquoi je suis là : pour vous offrir le soutien et les stratégies dont votre couple a besoin pour se reconstruire.
                         </p>
                         <p>
                             Notre approche repose sur la Thérapie d'Acceptation et d'Engagement (ACT), intégrée à d'autres méthodes basées sur la science, afin de proposer un accompagnement personnalisé et bienveillant. Nous avons également participé à des missions humanitaires pour soutenir des communautés touchées par des traumatismes et des crises.
                         </p>
                     </div>
                     <div className="about-detail-image">
-                        <img src={portraitStanding} alt="Meryem Abouhafs" />
+                        <img src={portraitStanding} alt="Najat Kobi - Thérapeute de couple" />
                     </div>
                 </div>
             </section>
@@ -88,7 +88,7 @@ const AboutPage: React.FC = () => {
                         </p>
                     </div>
                     <div className="mission-image">
-                        <img src={portraitSitting} alt="Meryem Abouhafs en consultation" />
+                        <img src={portraitSitting} alt="Najat Kobi en séance" />
                     </div>
                 </div>
             </section>
@@ -114,9 +114,9 @@ const AboutPage: React.FC = () => {
                                 <i className="fas fa-award"></i>
                             </div>
                             <div className="parcours-content">
-                                <h5>formations complementaires</h5>
+                                <h5>Spécialisation en thérapie de couple</h5>
                                 <p>
-                                    Formation en thérapie ACT (thérapie d'acceptation et d'engagement), psychwire and openforwards. Formation en tests projectives et neuropsychologiques, psychologia institute.
+                                    Formation intensive certifiée à l'IMPR, spécialisation systémique à l'IFACT de Lyon, et maîtrise de la méthode Gottman ainsi que de la thérapie conjugale positive.
                                 </p>
                             </div>
                         </div>

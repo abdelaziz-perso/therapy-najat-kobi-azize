@@ -95,8 +95,8 @@ const TestimonialsSection: React.FC = () => {
                     <div className="header-bg-image">
                         <img src={testimonialBg} alt="Background" loading="lazy" decoding="async" />
                         <div className="header-box">
-                            <h3>Pourquoi choisir notre service ?</h3>
-                            <p>Ce que nos patients disent de nous :</p>
+                            <h3>Ils nous ont fait confiance</h3>
+                            <p>Ce que les couples disent de leur accompagnement :</p>
                         </div>
                     </div>
                 </div>

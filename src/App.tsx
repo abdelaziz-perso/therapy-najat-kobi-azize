@@ -21,8 +21,8 @@ function HomePage() {
       <SupportSection />
       <ExpectationsSection />
       <AboutMeSection />
-      <TestimonialsSection />
       <ServicesGrid />
+      <TestimonialsSection />
       <SessionProcessSection />
       <AppointmentSection />
       <FAQSection />

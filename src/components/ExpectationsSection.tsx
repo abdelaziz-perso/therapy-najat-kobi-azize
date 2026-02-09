@@ -11,10 +11,9 @@ const ExpectationsSection: React.FC = () => {
     return (
         <section className="expectations-section">
             <div className="container">
-                <h2 className="expectations-title">Comment pouvons-nous vous aider ?</h2>
                 <h3 className="expectations-subtitle">À quoi s'attendre :</h3>
                 <p className="expectations-desc">
-                    La thérapie offre un espace sûr pour la guérison et la découverte de soi.
+                    La thérapie de couple offre un espace sûr pour la guérison relationnelle et la redécouverte de votre dynamique.
                 </p>
 
                 <div className="expectations-grid">

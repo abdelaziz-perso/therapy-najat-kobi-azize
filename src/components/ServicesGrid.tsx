@@ -1,65 +1,10 @@
 import React from 'react';
-import imgAdolescent from '../assets/authentic-scene-young-person-undergoing-psychological-therapy.jpg';
-import imgEnfant from '../assets/close-up-girl-therapy-session-with-parents.jpg';
-import imgAdulte from '../assets/depressed-woman-having-psychotherapy-session-doctor-s-office.jpg';
-import imgBilan from '../assets/close-up-psychologist-taking-notes-clipboard-therapy-session-with-her-worried-patient-psychology-mental-health-concept.jpg';
 import imgCouple from '../assets/therapie_couple.jpg';
 
 const ServicesGrid: React.FC = () => {
-    const services = [
-        {
-            title: 'Thérapie adolescent',
-            desc: "Un accompagnement bienveillant pour traverser les défis de l'adolescence, l'anxiété et les transitions scolaires.",
-            src: imgAdolescent,
-            tag: 'ÉCOUTE'
-        },
-        {
-            title: 'Thérapie enfant',
-            desc: "À travers le jeu et la créativité, nous aidons les plus jeunes à exprimer leurs émotions et grandir sereinement.",
-            src: imgEnfant,
-            tag: 'DÉVELOPPEMENT'
-        },
-        {
-            title: 'Thérapie adulte',
-            desc: "Un espace sécurisant pour explorer vos émotions, surmonter le stress et retrouver votre équilibre intérieur.",
-            src: imgAdulte,
-            tag: 'BIEN-ÊTRE'
-        },
-        {
-            title: 'Bilan neuropsychologique',
-            desc: "Évaluation approfondie de la mémoire et de l'attention pour mieux comprendre votre fonctionnement cognitif.",
-            src: imgBilan,
-            tag: 'ANALYSE'
-        }
-    ];
-
     return (
         <section id="services" className="services-redesign">
-            <div className="container">
-                <div className="services-header-modern">
-                    <span className="services-badge">NOS SOLUTIONS</span>
-                    <h2 className="services-main-title">Comment puis-je vous aider ?</h2>
-                    <p className="services-subtitle">Des approches adaptées à chaque étape de votre vie</p>
-                </div>
-
-                <div className="modern-services-grid">
-                    {services.map((service, index) => (
-                        <div key={index} className="modern-service-card">
-                            <div className="card-image-wrapper">
-                                <img src={service.src} alt={service.title} loading="lazy" decoding="async" />
-                                <span className="card-tag">{service.tag}</span>
-                            </div>
-                            <div className="card-info">
-                                <h3>{service.title}</h3>
-                                <p>{service.desc}</p>
-                                <a href="#contact" className="card-link">En savoir plus <i className="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Premium Story Section for Couple Therapy */}
+            {/* Premium Story Section for Couple Therapy - Now the main focus */}
             <div className="story-section-wrapper">
                 <div className="container">
                     <div className="story-grid">

@@ -32,18 +32,18 @@ const AboutMeSection: React.FC = () => {
             <div className="container about-me-container">
                 <div className="about-me-text">
                     <h2 className="about-title">Qui suis-je ?</h2>
-                    <h3 className="about-subtitle">Najat Kobi, psychologue clinicienne et psychothérapeute, à Casablanca</h3>
+                    <h3 className="about-subtitle">Najat Kobi, thérapeute de couple, à Casablanca</h3>
                     <p className="about-description">
-                        Avec plusieurs années d'expérience en psychothérapie, nous avons aidé de nombreuses personnes à surmonter leurs défis et à
-                        retrouver un bien-être émotionnel. Nous avons accompagné des individus souffrant d'anxiété, de dépression, de traumatismes,
-                        d'épuisement professionnel en leur offrant un chemin vers la guérison lorsqu'ils se sentaient perdus. Nous avons également soutenu
-                        des personnes confrontées au deuil, aux difficultés relationnelles, aux difficultés scolaires et aux grandes transitions de vie.
+                        Spécialisée dans l'accompagnement des couples, je vous aide à naviguer à travers les défis relationnels,
+                        à restaurer la communication et à reconstruire des liens solides. Que vous traversiez une crise,
+                        un tsunami conjugal ou que vous souhaitiez simplement renforcer votre complicité, je vous offre un espace
+                        sécurisant pour explorer votre dynamique de couple et retrouver une harmonie durable.
                     </p>
                     <Link to="/a-propos" className="btn-dark">voir plus</Link>
                 </div>
 
                 <div className="about-me-image">
-                    <img src={psychologistImg} alt="Meryem Abouhafs" loading="lazy" decoding="async" />
+                    <img src={psychologistImg} alt="Najat Kobi - Thérapeute de couple" loading="lazy" decoding="async" />
                 </div>
             </div>
         </section>
