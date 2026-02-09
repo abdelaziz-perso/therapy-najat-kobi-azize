@@ -1,57 +1,72 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json");
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
+header('Content-Type: application/json');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
-    $json = file_get_contents('php://input');
-    $data = json_decode($json, true);
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
-    $firstname = strip_tags(trim($data["firstname"]));
-    $lastname = strip_tags(trim($data["lastname"]));
-    $email = filter_var(trim($data["email"]), FILTER_SANITIZE_EMAIL);
-    $phone = strip_tags(trim($data["phone"]));
-    $date = strip_tags(trim($data["date"]));
-    $time = strip_tags(trim($data["time"]));
-    $message = strip_tags(trim($data["message"]));
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Méthode non autorisée.']);
+    exit();
+}
 
-    // Validation
-    if (empty($firstname) || empty($lastname) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        http_response_code(400);
-        echo json_encode(["message" => "Veuillez remplir tous les champs obligatoires correctement."]);
-        exit;
-    }
+$input = file_get_contents('php://input');
+$data = json_decode($input, true);
 
-    // Recipient email
-    $recipient = "najatkobi7@gmail.com";
+if (!$data) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Données invalides.']);
+    exit();
+}
 
-    // Email subject
-    $subject = "Nouveau message de contact de $firstname $lastname";
+$firstname = strip_tags(trim($data['firstname'] ?? ''));
+$lastname = strip_tags(trim($data['lastname'] ?? ''));
+$email = filter_var(trim($data['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+$phone = strip_tags(trim($data['phone'] ?? ''));
+$date = strip_tags(trim($data['date'] ?? ''));
+$time = strip_tags(trim($data['time'] ?? ''));
+$message = strip_tags(trim($data['message'] ?? ''));
 
-    // Email content
-    $email_content = "Nom: $firstname $lastname\n";
-    $email_content .= "Email: $email\n";
-    $email_content .= "Téléphone: $phone\n";
-    $email_content .= "Date souhaitée: $date\n";
-    $email_content .= "Heure souhaitée: $time\n\n";
-    $email_content .= "Message:\n$message\n";
+if (empty($firstname) || empty($lastname) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Veuillez remplir tous les champs obligatoires correctement.']);
+    exit();
+}
 
-    // Email headers
-    $email_headers = "From: $firstname $lastname <$email>";
+$to_email = 'najatkobi7@gmail.com';
+$subject = "Nouveau message de contact - $firstname $lastname";
+$subject = "=?UTF-8?B?" . base64_encode($subject) . "?=";
 
-    // Send email
-    if (mail($recipient, $subject, $email_content, $email_headers)) {
-        http_response_code(200);
-        echo json_encode(["message" => "Merci ! Votre message a été envoyé."]);
-    } else {
-        http_response_code(500);
-        echo json_encode(["message" => "Oups ! Quelque chose a mal tourné et nous n'avons pas pu envoyer votre message."]);
-    }
+$email_content = "Nom: $firstname $lastname\n";
+$email_content .= "Email: $email\n";
+$email_content .= "Téléphone: " . ($phone ?: 'Non fourni') . "\n";
+$email_content .= "Date souhaitée: " . ($date ?: 'Non fournie') . "\n";
+$email_content .= "Heure souhaitée: " . ($time ?: 'Non fournie') . "\n\n";
+$email_content .= "Message:\n" . $message . "\n";
 
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type:text/plain;charset=UTF-8\r\n";
+$headers .= "From: $firstname $lastname <$email>\r\n";
+$headers .= "Reply-To: $firstname $lastname <$email>\r\n";
+
+$mail_success = @mail($to_email, $subject, $email_content, $headers);
+
+if ($mail_success) {
+    http_response_code(200);
+    echo json_encode([
+        'success' => true,
+        'message' => 'Merci ! Votre message a été envoyé.',
+    ]);
 } else {
-    http_response_code(403);
-    echo json_encode(["message" => "Il y a eu un problème avec votre soumission, veuillez réessayer."]);
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Oups ! Quelque chose a mal tourné. Veuillez réessayer ou nous contacter par téléphone.',
+    ]);
 }
 ?>

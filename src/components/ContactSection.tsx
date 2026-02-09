@@ -38,10 +38,18 @@ const ContactSection: React.FC = () => {
                 body: JSON.stringify(formData),
             });
 
-            const result = await response.json();
+            const text = await response.text();
+            let result: { success?: boolean; message?: string };
+            try {
+                result = text ? JSON.parse(text) : {};
+            } catch {
+                result = {};
+            }
 
-            if (response.ok) {
-                setStatus({ type: 'success', message: result.message });
+            const message = result.message || (response.ok ? 'Merci ! Votre message a été envoyé.' : 'Une erreur est survenue.');
+
+            if (response.ok && result.success !== false) {
+                setStatus({ type: 'success', message });
                 setFormData({
                     firstname: '',
                     lastname: '',
@@ -52,10 +60,10 @@ const ContactSection: React.FC = () => {
                     message: ''
                 });
             } else {
-                setStatus({ type: 'error', message: result.message || 'Une erreur est survenue.' });
+                setStatus({ type: 'error', message });
             }
         } catch {
-            setStatus({ type: 'error', message: 'Impossible de contacter le serveur.' });
+            setStatus({ type: 'error', message: 'Impossible de contacter le serveur. Vérifiez votre connexion.' });
         } finally {
             setLoading(false);
         }
