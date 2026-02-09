@@ -50,6 +50,32 @@ const Footer: React.FC = () => {
                     <p>Copyright © 2024 Najat Kobi, Tous droits réservés.</p>
                 </div>
             </div>
+
+            <div className="container footer-developers">
+                <p className="footer-developer-text">
+                    Développé par{' '}
+                    <a
+                        href="https://wa.me/212630258502?text=slt%20jai%20besoin%20de%20site%20web%20pour"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="footer-developer-link"
+                        aria-label="Contacter Abdelaziz & Hamza sur WhatsApp"
+                    >
+                        Abdelaziz & Hamza
+                    </a>
+                    {' · '}
+                    En collaboration avec{' '}
+                    <a
+                        href="https://stayinmedia.ma/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="footer-developer-link"
+                        aria-label="Stay In Media - Agence Digital Marocaine"
+                    >
+                        Stay In Media
+                    </a>
+                </p>
+            </div>
         </footer>
     );
 };
