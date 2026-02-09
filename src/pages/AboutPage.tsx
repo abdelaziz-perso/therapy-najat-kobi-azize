@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import seaboat from '../assets/seaboat1.jpg';
 import portraitStanding from '../assets/full-shot-psychologist-her-office.jpg'; // Using existing for now
 import portraitSitting from '../assets/full-shot-psychologist-her-office.jpg'; // Using existing for now
 import TestimonialsSection from '../components/TestimonialsSection';
@@ -44,15 +43,6 @@ const AboutPage: React.FC = () => {
         <div className="about-page">
             {/* Capture 1: Simple Hero */}
             <section className="about-hero">
-                <img
-                    src={seaboat}
-                    alt="Najat Kobi About Background"
-                    className="hero-bg-img"
-                    fetchPriority="high"
-                    loading="eager"
-                    decoding="async"
-                />
-                <div className="hero-overlay"></div>
                 <div className="container about-hero-content">
                     <h1 ref={addToRefs}>Najat KOBI</h1>
                     <p ref={addToRefs}>Psychologue et psychothérapeute,<br />en ligne et à Casablanca</p>

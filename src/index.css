@@ -2539,7 +2539,8 @@ img {
   display: flex;
   align-items: center;
   position: relative;
-  color: #fff;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--accent-sage) 0%, var(--accent-muted) 100%);
   overflow: hidden;
 }
 

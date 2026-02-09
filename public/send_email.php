@@ -38,7 +38,10 @@ if (empty($firstname) || empty($lastname) || empty($message) || !filter_var($ema
     exit();
 }
 
+// Comme taxi-em-azize : From domaine + Return-Path + -f pour la délivrabilité
 $to_email = 'najatkobi7@gmail.com';
+$from_email = 'contact@najatkobi-therapie.ma'; // adresse configurée sur Hostinger
+
 $subject = "Nouveau message de contact - $firstname $lastname";
 $subject = "=?UTF-8?B?" . base64_encode($subject) . "?=";
 
@@ -51,10 +54,13 @@ $email_content .= "Message:\n" . $message . "\n";
 
 $headers = "MIME-Version: 1.0\r\n";
 $headers .= "Content-type:text/plain;charset=UTF-8\r\n";
-$headers .= "From: $firstname $lastname <$email>\r\n";
+$headers .= "From: Najat Kobi Site <$from_email>\r\n";
 $headers .= "Reply-To: $firstname $lastname <$email>\r\n";
+$headers .= "Return-Path: $from_email\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
-$mail_success = @mail($to_email, $subject, $email_content, $headers);
+// -f from_email (comme taxi) pour que le serveur utilise l'expéditeur du domaine
+$mail_success = @mail($to_email, $subject, $email_content, $headers, "-f " . $from_email);
 
 if ($mail_success) {
     http_response_code(200);
