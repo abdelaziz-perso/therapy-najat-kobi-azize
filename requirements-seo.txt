@@ -1,0 +1,4 @@
+# Install for scripts/seo_check.py
+# pip install -r requirements-seo.txt
+requests>=2.28.0
+beautifulsoup4>=4.11.0

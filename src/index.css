@@ -399,6 +399,22 @@ img {
   color: var(--accent-sage);
 }
 
+.support-cta {
+  margin-top: 24px;
+  font-size: 15px;
+}
+
+.support-cta a {
+  color: var(--accent-sage);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.support-cta a:hover {
+  text-decoration: underline;
+  color: var(--accent-muted);
+}
+
 .support-images {
   flex: 1;
   display: flex;

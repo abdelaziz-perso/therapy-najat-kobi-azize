@@ -4,7 +4,7 @@ const Hero: React.FC = () => {
     return (
         <section className="hero">
             <div className="container hero-content">
-                <h1 className="hero-title">Najat Kobi, psychologue Casablanca</h1>
+                <h1 className="hero-title">Najat Kobi, thérapeute de couple et psychologue à Casablanca</h1>
                 <h2 className="hero-subtitle">Résilient avec plein de ressources</h2>
                 <p className="hero-description">
                     Bénéficiez des connaissances, des outils et du soutien nécessaires pour surmonter les défis de la vie,

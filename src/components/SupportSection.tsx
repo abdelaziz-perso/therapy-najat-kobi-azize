@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import imgLarge from '../assets/authentic-scene-young-person-undergoing-psychological-therapy.jpg';
 import imgTopRight from '../assets/medium-shot-couple-therapy.jpg';
 import imgBottomRight from '../assets/close-up-girl-therapy-session-with-parents.jpg';
@@ -54,6 +55,11 @@ const SupportSection: React.FC = () => {
                         <li>Sentiment de déconnexion avec les proches</li>
                         <li>Anxiété liée aux études</li>
                     </ul>
+                    <p className="support-cta">
+                        <Link to="/a-propos">Découvrez notre approche</Link>
+                        {' · '}
+                        <a href="/#contact">Prendre rendez-vous</a>
+                    </p>
                 </div>
 
                 <div className="support-images">

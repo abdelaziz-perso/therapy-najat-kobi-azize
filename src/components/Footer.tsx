@@ -16,10 +16,10 @@ const Footer: React.FC = () => {
                     <div className="footer-column">
                         <h4 className="footer-heading">CONSULTATIONS</h4>
                         <ul className="footer-list">
-                            <li><a href="#">Thérapie pour adolescent</a></li>
-                            <li><a href="#">Thérapie pour enfant</a></li>
-                            <li><a href="#">Thérapie pour adulte</a></li>
-                            <li><a href="#">Bilan neuropsychologique</a></li>
+                            <li><a href="/#services">Thérapie pour adolescent</a></li>
+                            <li><a href="/#services">Thérapie pour enfant</a></li>
+                            <li><a href="/#services">Thérapie pour adulte</a></li>
+                            <li><a href="/#services">Bilan neuropsychologique</a></li>
                         </ul>
                     </div>
 

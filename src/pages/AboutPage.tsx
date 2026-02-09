@@ -55,7 +55,7 @@ const AboutPage: React.FC = () => {
                 <div className="hero-overlay"></div>
                 <div className="container about-hero-content">
                     <h1 ref={addToRefs}>Najat KOBI</h1>
-                    <p ref={addToRefs}>Psychologue et psychothérapeute,<br />en ligne and à Casablanca</p>
+                    <p ref={addToRefs}>Psychologue et psychothérapeute,<br />en ligne et à Casablanca</p>
                 </div>
             </section>
 
