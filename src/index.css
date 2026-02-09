@@ -297,29 +297,29 @@ img {
 }
 
 .hero-title {
-  font-size: 52px;
-  font-weight: 400;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero-subtitle {
-  font-size: 40px;
-  font-weight: 400;
-  margin-bottom: 24px;
+.hero-name {
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
 }
 
-.hero-description {
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 800px;
-  margin-bottom: 40px;
-  opacity: 0.9;
-  margin-left: auto;
-  margin-right: auto;
+.hero-job {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text-primary);
+  opacity: 0.7;
+  letter-spacing: 1px;
+  text-transform: lowercase;
 }
 
 /* CTA: fond #AEB6A3, texte #060504, hover #858982 */
@@ -2223,7 +2223,7 @@ img {
     display: none;
   }
 
-  .nav-links.active ~ .social-icons {
+  .nav-links.active~.social-icons {
     display: flex;
   }
 
@@ -2250,19 +2250,15 @@ img {
   }
 
   .hero-title {
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 16px;
+    margin-bottom: 30px;
   }
 
-  .hero-subtitle {
-    font-size: 22px;
-    margin-bottom: 16px;
+  .hero-name {
+    font-size: 48px;
   }
 
-  .hero-description {
-    font-size: 15px;
-    margin-bottom: 28px;
+  .hero-job {
+    font-size: 20px;
   }
 
   .btn-primary {
@@ -2373,18 +2369,15 @@ img {
   }
 
   .hero-title {
-    font-size: 24px;
-    margin-bottom: 12px;
-  }
-
-  .hero-subtitle {
-    font-size: 18px;
-    margin-bottom: 12px;
-  }
-
-  .hero-description {
-    font-size: 14px;
     margin-bottom: 24px;
+  }
+
+  .hero-name {
+    font-size: 36px;
+  }
+
+  .hero-job {
+    font-size: 16px;
   }
 
   .support-title {
@@ -2718,6 +2711,7 @@ img {
 }
 
 @media (max-width: 992px) {
+
   .about-detail-container,
   .mission-container {
     flex-direction: column;
