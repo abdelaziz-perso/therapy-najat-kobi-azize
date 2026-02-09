@@ -11,6 +11,7 @@ const AboutPage: React.FC = () => {
     const fadeRefs = useRef<Array<HTMLElement | null>>([]);
 
     useEffect(() => {
+        const refs = fadeRefs.current;
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -22,12 +23,12 @@ const AboutPage: React.FC = () => {
             { threshold: 0.1 }
         );
 
-        fadeRefs.current.forEach((ref) => {
+        refs.forEach((ref) => {
             if (ref) observer.observe(ref);
         });
 
         return () => {
-            fadeRefs.current.forEach((ref) => {
+            refs.forEach((ref) => {
                 if (ref) observer.unobserve(ref);
             });
         };

@@ -54,7 +54,7 @@ const ContactSection: React.FC = () => {
             } else {
                 setStatus({ type: 'error', message: result.message || 'Une erreur est survenue.' });
             }
-        } catch (error) {
+        } catch {
             setStatus({ type: 'error', message: 'Impossible de contacter le serveur.' });
         } finally {
             setLoading(false);

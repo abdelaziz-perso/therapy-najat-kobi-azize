@@ -7,6 +7,7 @@ const SupportSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
+        const node = sectionRef.current;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -16,13 +17,13 @@ const SupportSection: React.FC = () => {
             { threshold: 0.2 }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        if (node) {
+            observer.observe(node);
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
+            if (node) {
+                observer.unobserve(node);
             }
         };
     }, []);

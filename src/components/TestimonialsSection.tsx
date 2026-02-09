@@ -49,6 +49,7 @@ const TestimonialsSection: React.FC = () => {
     ];
 
     useEffect(() => {
+        const node = sectionRef.current;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -58,13 +59,13 @@ const TestimonialsSection: React.FC = () => {
             { threshold: 0.1 }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        if (node) {
+            observer.observe(node);
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
+            if (node) {
+                observer.unobserve(node);
             }
         };
     }, []);
