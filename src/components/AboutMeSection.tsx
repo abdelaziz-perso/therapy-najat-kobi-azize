@@ -31,13 +31,12 @@ const AboutMeSection: React.FC = () => {
         <section ref={sectionRef} id="a-propos" className="about-me-section">
             <div className="container about-me-container">
                 <div className="about-me-text">
-                    <h2 className="about-title">Qui suis-je ?</h2>
-                    <h3 className="about-subtitle">Najat Kobi, thérapeute de couple, à Casablanca</h3>
+                    <h2 className="about-title">Pourquoi j'ai choisi le couple ?</h2>
                     <p className="about-description">
-                        Spécialisée dans l'accompagnement des couples, je vous aide à naviguer à travers les défis relationnels,
-                        à restaurer la communication et à reconstruire des liens solides. Que vous traversiez une crise,
-                        un tsunami conjugal ou que vous souhaitiez simplement renforcer votre complicité, je vous offre un espace
-                        sécurisant pour explorer votre dynamique de couple et retrouver une harmonie durable.
+                        J'ai été biberonnée aux comédies romantiques et aux contes de fées. Comme beaucoup de jeunes filles de ma génération j'étais amoureuse de l'amour. Les choses semblaient simples : on rencontrait quelqu'un on tombait amoureux et on vivait heureux. Je n'étais pas stupide, je savais qu'il y aurait des obstacles, des crises… Mais à la fin l'amour triomphe toujours ! C'est ce que j'avais appris auprès de Cendrillon et de Maria (la mélodie du bonheur).
+                    </p>
+                    <p className="about-description">
+                        Deux décennies plus tard, je me retrouve en plein tsunami conjugal (pas du tout prévu dans le plan de vie) à la recherche d'un thérapeute pour sauver mon couple. J'étais en train de finir ma formation de thérapeute ACP (Approche centrée sur la personne de Carl Rogers) et j'étais convaincue par la démarche thérapeutique. Pour nous, il était trop tard, mais cette rencontre m'a permis de choisir ma spécialité : je serai thérapeute de couple.
                     </p>
                     <Link to="/a-propos" className="btn-dark">voir plus</Link>
                 </div>

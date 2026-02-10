@@ -55,6 +55,87 @@ body {
   max-width: 100vw;
 }
 
+/* Maintenance page (production only when VITE_MAINTENANCE_MODE=true) */
+.maintenance-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-secondary) 100%);
+  padding: 2rem;
+}
+
+.maintenance-content {
+  text-align: center;
+  max-width: 480px;
+}
+
+.maintenance-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.maintenance-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.maintenance-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.maintenance-subtitle {
+  font-size: 1.125rem;
+  color: var(--accent-muted);
+  margin-bottom: 2.5rem;
+}
+
+.maintenance-message {
+  background: var(--bg-main);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.maintenance-message h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.maintenance-message p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.maintenance-message p:last-child {
+  margin-bottom: 0;
+}
+
+.maintenance-contact {
+  margin-top: 1rem !important;
+}
+
+.maintenance-contact a {
+  color: var(--accent-sage);
+  font-weight: 600;
+}
+
+.maintenance-contact a:hover {
+  text-decoration: underline;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -1473,7 +1554,20 @@ img {
   gap: 10px;
   font-size: 15px;
   line-height: 1.6;
-  max-width: 280px;
+  max-width: 100%;
+}
+
+.cabinet-map {
+  margin: 10px 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cabinet-map iframe {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  display: block;
 }
 
 .location-link {
@@ -1746,6 +1840,34 @@ img {
   color: #aaa;
 }
 
+.form-group-rdv-type .rdv-type-options {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.rdv-type-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.rdv-type-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-sage);
+  cursor: pointer;
+}
+
+.rdv-type-label {
+  user-select: none;
+}
+
 .btn-send {
   align-self: flex-start;
   padding: 12px 40px;
@@ -1875,6 +1997,20 @@ img {
   font-weight: 500;
   color: var(--accent-orange);
   text-decoration: none;
+}
+
+.contact-map {
+  margin-top: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.contact-map iframe {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  display: block;
 }
 
 .wavy-divider {
@@ -2604,6 +2740,61 @@ img {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
+.about-formations-list {
+  margin: 20px 0 24px 24px;
+  padding: 0;
+  list-style: disc;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-formations-list li {
+  margin-bottom: 10px;
+}
+
+.about-deroulement-section {
+  padding: 80px 0;
+  background-color: var(--bg-secondary);
+}
+
+.about-deroulement-section .section-label {
+  margin-bottom: 40px;
+}
+
+.about-deroulement-section .process-steps-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-rdv-section {
+  padding: 80px 0;
+  background-color: var(--bg-main);
+}
+
+.about-rdv-section .section-label {
+  margin-bottom: 12px;
+}
+
+.about-rdv-intro {
+  font-size: 16px;
+  color: var(--text-muted, #666);
+  margin-bottom: 24px;
+}
+
+.about-rdv-info {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.about-rdv-info a {
+  color: var(--accent-orange);
+  text-decoration: none;
+}
+
+.about-rdv-info a:hover {
+  text-decoration: underline;
+}
+
 .mission-section {
   padding: 100px 0;
   background-color: var(--accent-sage);
@@ -2698,6 +2889,8 @@ img {
 .about-hero h1,
 .about-hero p,
 .about-detail-section,
+.about-deroulement-section,
+.about-rdv-section,
 .mission-section,
 .parcours-section {
   opacity: 0;

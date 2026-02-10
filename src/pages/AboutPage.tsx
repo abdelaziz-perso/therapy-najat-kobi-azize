@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import portraitStanding from '../assets/full-shot-psychologist-her-office.jpg'; // Using existing for now
-import portraitSitting from '../assets/full-shot-psychologist-her-office.jpg'; // Using existing for now
+import { Link } from 'react-router-dom';
+import portraitImg from '../assets/full-shot-psychologist-her-office.jpg';
 import TestimonialsSection from '../components/TestimonialsSection';
 import AppointmentSection from '../components/AppointmentSection';
 import FAQSection from '../components/FAQSection';
@@ -41,85 +41,79 @@ const AboutPage: React.FC = () => {
 
     return (
         <div className="about-page">
-            {/* Capture 1: Simple Hero */}
             <section className="about-hero">
                 <div className="container about-hero-content">
                     <h1>Najat KOBI</h1>
-                    <p ref={addToRefs}>Thérapeute de couple,<br />en ligne et à Casablanca</p>
+                    <p ref={addToRefs}>Thérapeute de couple</p>
+                    <Link to="/#contact" className="btn-primary" style={{ marginTop: '1rem' }}>Prendre RDV</Link>
                 </div>
             </section>
 
-            {/* Capture 2: Qui suis-je Detail 1 */}
             <section className="about-detail-section" ref={addToRefs}>
                 <div className="container about-detail-container">
                     <div className="about-detail-text">
-                        <h2 className="section-label">Qui suis-je ?</h2>
-                        <h3>Najat Kobi, thérapeute de couple.</h3>
+                        <h2 className="section-label">Pourquoi j'ai choisi le couple ?</h2>
                         <p>
-                            Spécialisée dans l'accompagnement des couples, j'ai aidé de nombreux duos à surmonter leurs défis et à retrouver une harmonie relationnelle. Mon parcours m'a amenée à me concentrer exclusivement sur les dynamiques de couple, car je crois fermement que la qualité de nos relations définit la qualité de notre vie.
-                        </p>
-                        <p className="bold-text">Nous pouvons vous aider aussi.</p>
-                        <p>
-                            Je sais que traverser une crise conjugale ou des tensions répétées peut être épuisant. C'est pourquoi je suis là : pour vous offrir le soutien et les stratégies dont votre couple a besoin pour se reconstruire.
+                            J'ai été biberonnée aux comédies romantiques et aux contes de fées. Comme beaucoup de jeunes filles de ma génération j'étais amoureuse de l'amour. Les choses semblaient simples : on rencontrait quelqu'un on tombait amoureux et on vivait heureux. Je n'étais pas stupide, je savais qu'il y aurait des obstacles, des crises… Mais à la fin l'amour triomphe toujours ! C'est ce que j'avais appris auprès de Cendrillon et de Maria (la mélodie du bonheur).
                         </p>
                         <p>
-                            Notre approche repose sur la Thérapie d'Acceptation et d'Engagement (ACT), intégrée à d'autres méthodes basées sur la science, afin de proposer un accompagnement personnalisé et bienveillant. Nous avons également participé à des missions humanitaires pour soutenir des communautés touchées par des traumatismes et des crises.
+                            Deux décennies plus tard, je me retrouve en plein tsunami conjugal (pas du tout prévu dans le plan de vie) à la recherche d'un thérapeute pour sauver mon couple. J'étais en train de finir ma formation de thérapeute ACP (Approche centrée sur la personne de Carl Rogers) et j'étais convaincue par la démarche thérapeutique. Pour nous, il était trop tard, mais cette rencontre m'a permis de choisir ma spécialité : je serai thérapeute de couple.
                         </p>
+                        <p>
+                            J'aime le couple. J'ai une affection particulière pour vous qui venez me consulter. Je me sens honorée que vous partagiez avec moi votre intimité. Je suis admirative de l'énergie que vous mettez à rester ensemble. Pour vous être utile, vous qui me faites confiance, j'ai multiplié les formations pour avoir un maximum d'outils pour vous aider :
+                        </p>
+                        <ul className="about-formations-list">
+                            <li>Certifié thérapeute à l'IMPR (Institut marocain de psychothérapie relationnelle)</li>
+                            <li>Certifié thérapeute de couple systémique par l'IFACT de Lyon (Institut de formation et d'application des thérapies de la communication)</li>
+                            <li>Formation en Thérapie conjugale positive auprès d'Yvon Dellaire</li>
+                            <li>Formation à la méthode Gottman, qui pour moi est le dieu de la thérapie de couple !</li>
+                        </ul>
+                        <p>Et évidemment je n'ai pas l'intention de m'arrêter en si bon chemin, quand on aime on ne compte pas !</p>
                     </div>
                     <div className="about-detail-image">
-                        <img src={portraitStanding} alt="Najat Kobi - Thérapeute de couple" />
+                        <img src={portraitImg} alt="Najat Kobi - Thérapeute de couple" loading="lazy" decoding="async" />
                     </div>
                 </div>
             </section>
 
-            {/* Capture 3: Mission & Values (Dark Background) */}
-            <section className="mission-section" ref={addToRefs}>
-                <div className="container mission-container">
-                    <div className="mission-text">
-                        <p>
-                            J’ai eu le privilège de collaborer avec des organisations sur des missions humanitaires, allant du soutien à la guérison des enfants et des adolescents à l’autonomisation des femmes victimes de violence.
-                        </p>
-                        <p>
-                            Je suis également très active au sein d’organisations de jeunesse, contribuant à façonner la société marocaine, en animant des ateliers et en créant du contenu pour sensibiliser à l’importance de la santé mentale.
-                        </p>
-                        <h4 className="mission-subtitle">MA MISSION ET MES VALEURS :</h4>
-                        <p>
-                            Authenticité, clarté et flexibilité sont mes valeurs professionnelles, qui m’aideront dans ma mission d'accompagnement de toute personne en quête de sens, en transition de vie, et/ou en souffrance vers une vie plus alignée, une vie pleine de sens
-                        </p>
-                    </div>
-                    <div className="mission-image">
-                        <img src={portraitSitting} alt="Najat Kobi en séance" />
-                    </div>
-                </div>
-            </section>
-
-            {/* Capture 4: Mon parcours */}
-            <section className="parcours-section" ref={addToRefs}>
+            <section className="about-deroulement-section" ref={addToRefs}>
                 <div className="container">
-                    <h2 className="parcours-title">Mon parcours :</h2>
-                    <div className="parcours-grid">
-                        <div className="parcours-item">
-                            <div className="parcours-icon">
-                                <i className="fas fa-scroll"></i>
-                            </div>
-                            <div className="parcours-content">
-                                <h5>Formation universitaire</h5>
-                                <p>
-                                    Diplômée d'une licence en psychologie générale de l'Université internationale de Casablanca, et d'un master en psychologie clinique et psychopathologie de la faculté des lettres et des sciences humaines Mohammedia.
-                                </p>
+                    <h2 className="section-label">Comment se déroule une thérapie de couple ?</h2>
+                    <div className="process-steps-list">
+                        <div className="process-step-card">
+                            <div className="step-number-circle">1</div>
+                            <div className="step-card-content">
+                                <h3>Première séance (environ 1h30)</h3>
+                                <p>Je reçois les conjoints ensemble pour une première séance qui dure à peu près 1h30. J'apprends à vous connaitre individuellement puis ensuite je m'intéresse à mon vrai client qui est votre couple.</p>
                             </div>
                         </div>
-                        <div className="parcours-item">
-                            <div className="parcours-icon">
-                                <i className="fas fa-award"></i>
-                            </div>
-                            <div className="parcours-content">
-                                <h5>Spécialisation en thérapie de couple</h5>
-                                <p>
-                                    Formation intensive certifiée à l'IMPR, spécialisation systémique à l'IFACT de Lyon, et maîtrise de la méthode Gottman ainsi que de la thérapie conjugale positive.
-                                </p>
+                        <div className="process-step-card">
+                            <div className="step-number-circle">2</div>
+                            <div className="step-card-content">
+                                <h3>Séances suivantes</h3>
+                                <p>Les séances suivantes sont sensiblement plus courtes mais elles se font toujours à 3. Il est très rare que je prenne individuellement les conjoints, et même si c'est le cas, c'est en général pour une seule séance.</p>
                             </div>
                         </div>
+                        <div className="process-step-card">
+                            <div className="step-number-circle">3</div>
+                            <div className="step-card-content">
+                                <h3>Durée de la thérapie</h3>
+                                <p>La thérapie de couple est une thérapie brève, elle dure rarement plus de 10 ou 12 séances.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="about-rdv-section" ref={addToRefs}>
+                <div className="container">
+                    <h2 className="section-label">Prendre rdv</h2>
+                    <p className="about-rdv-intro">Par téléphone ou par mail</p>
+                    <div className="about-rdv-info">
+                        <p><strong>Tel :</strong> 06.61.33.81.97</p>
+                        <p><strong>Mail :</strong> <a href="mailto:najatkobi7@gmail.com">najatkobi7@gmail.com</a></p>
+                        <p><strong>Insta :</strong> <a href="https://www.instagram.com/kobi.najat/" target="_blank" rel="noopener noreferrer">kobi.najat</a></p>
+                        <p><strong>Adresse :</strong> Lotissemebt Arsat Lakbir, immeuble 16 le noble Etage 5 appartement 23</p>
                     </div>
                 </div>
             </section>

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MaintenancePage from './components/MaintenancePage';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SupportSection from './components/SupportSection';
@@ -31,7 +32,14 @@ function HomePage() {
   );
 }
 
+const isMaintenanceMode =
+  import.meta.env.PROD && import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+
 function App() {
+  if (isMaintenanceMode) {
+    return <MaintenancePage />;
+  }
+
   return (
     <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />

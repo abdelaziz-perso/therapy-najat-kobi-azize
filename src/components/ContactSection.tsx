@@ -9,6 +9,7 @@ const ContactSection: React.FC = () => {
         email: '',
         date: '',
         time: '',
+        rdvType: '' as '' | 'online' | 'presentiel',
         message: ''
     });
 
@@ -22,6 +23,9 @@ const ContactSection: React.FC = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
+    };
+    const handleRdvTypeChange = (value: 'online' | 'presentiel') => {
+        setFormData(prev => ({ ...prev, rdvType: value }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -57,6 +61,7 @@ const ContactSection: React.FC = () => {
                     email: '',
                     date: '',
                     time: '',
+                    rdvType: '',
                     message: ''
                 });
             } else {
@@ -150,6 +155,31 @@ const ContactSection: React.FC = () => {
                                     />
                                 </div>
                             </div>
+                            <div className="form-group full-width form-group-rdv-type">
+                                <label>Type de rendez-vous</label>
+                                <div className="rdv-type-options">
+                                    <label className="rdv-type-option">
+                                        <input
+                                            type="radio"
+                                            name="rdvType"
+                                            value="online"
+                                            checked={formData.rdvType === 'online'}
+                                            onChange={() => handleRdvTypeChange('online')}
+                                        />
+                                        <span className="rdv-type-label">En ligne</span>
+                                    </label>
+                                    <label className="rdv-type-option">
+                                        <input
+                                            type="radio"
+                                            name="rdvType"
+                                            value="presentiel"
+                                            checked={formData.rdvType === 'presentiel'}
+                                            onChange={() => handleRdvTypeChange('presentiel')}
+                                        />
+                                        <span className="rdv-type-label">Présentiel</span>
+                                    </label>
+                                </div>
+                            </div>
                             <div className="form-group full-width">
                                 <label>Message</label>
                                 <textarea
@@ -176,8 +206,8 @@ const ContactSection: React.FC = () => {
                     </div>
 
                     <div className="contact-info-side">
-                        <h3>Besoin d'aide supplémentaire ?</h3>
-                        <p className="info-intro">N'hésitez pas à nous appeler, nous sommes là pour vous accompagner.</p>
+                        <h3>Prendre rdv</h3>
+                        <p className="info-intro">Par téléphone ou par mail</p>
 
                         <div className="info-items">
                             <div className="info-item">
@@ -185,17 +215,8 @@ const ContactSection: React.FC = () => {
                                     <i className="fas fa-phone"></i>
                                 </div>
                                 <div className="info-text">
-                                    <span className="info-label">ASSISTANCE À LA CLIENTÈLE</span>
-                                    <a href="tel:+212661338197" className="info-value">06 61 33 81 97</a>
-                                </div>
-                            </div>
-
-                            <div className="info-item">
-                                <div className="info-icon">
-                                    <i className="fas fa-location-dot"></i>
-                                </div>
-                                <div className="info-text">
-                                    <span className="info-value">Lotissemebt Arsat Lakbir, immeuble 16 le noble Etage 5 appartement 23</span>
+                                    <span className="info-label">TEL</span>
+                                    <a href="tel:+212661338197" className="info-value">06.61.33.81.97</a>
                                 </div>
                             </div>
 
@@ -204,10 +225,43 @@ const ContactSection: React.FC = () => {
                                     <i className="fas fa-envelope"></i>
                                 </div>
                                 <div className="info-text">
-                                    <span className="info-label">ASSISTANCE PAR E-MAIL</span>
+                                    <span className="info-label">MAIL</span>
                                     <a href="mailto:najatkobi7@gmail.com" className="info-value">najatkobi7@gmail.com</a>
                                 </div>
                             </div>
+
+                            <div className="info-item">
+                                <div className="info-icon">
+                                    <i className="fab fa-instagram"></i>
+                                </div>
+                                <div className="info-text">
+                                    <span className="info-label">INSTA</span>
+                                    <a href="https://www.instagram.com/kobi.najat/" target="_blank" rel="noopener noreferrer" className="info-value">kobi.najat</a>
+                                </div>
+                            </div>
+
+                            <div className="info-item">
+                                <div className="info-icon">
+                                    <i className="fas fa-location-dot"></i>
+                                </div>
+                                <div className="info-text">
+                                    <span className="info-label">ADRESSE</span>
+                                    <span className="info-value">Lotissemebt Arsat Lakbir, immeuble 16 le noble Etage 5 appartement 23</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="contact-map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3099.015120109924!2d-7.646187500000001!3d33.5771875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd14f48a9011%3A0x7b92e3999875894a!2sNajat%20Kobi%20%E2%80%93%20Th%C3%A9rapie%20Conjugale%20%C3%A0%20Casablanca!5e1!3m2!1sen!2sma!4v1770743370994!5m2!1sen!2sma"
+                                width="400"
+                                height="300"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Najat Kobi – Thérapie Conjugale à Casablanca"
+                            />
                         </div>
                     </div>
                 </div>

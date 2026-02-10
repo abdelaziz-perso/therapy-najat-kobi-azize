@@ -29,7 +29,7 @@ const SessionProcessSection: React.FC = () => {
         <section id="deroulement" ref={sectionRef} className="session-process-section">
             <div className="container">
                 <span className="process-label">DÉROULEMENT</span>
-                <h2 className="process-main-title">Comment se déroule une séance de thérapie ?</h2>
+                <h2 className="process-main-title">Comment se déroule une thérapie de couple ?</h2>
 
                 <div className="process-steps-list">
                     <div className="process-step-card">
