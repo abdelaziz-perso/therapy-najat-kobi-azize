@@ -105,19 +105,6 @@ const AboutPage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="about-rdv-section" ref={addToRefs}>
-                <div className="container">
-                    <h2 className="section-label">Prendre rdv</h2>
-                    <p className="about-rdv-intro">Par téléphone ou par mail</p>
-                    <div className="about-rdv-info">
-                        <p><strong>Tel :</strong> 06.61.33.81.97</p>
-                        <p><strong>Mail :</strong> <a href="mailto:najatkobi7@gmail.com">najatkobi7@gmail.com</a></p>
-                        <p><strong>Insta :</strong> <a href="https://www.instagram.com/kobi.najat/" target="_blank" rel="noopener noreferrer">kobi.najat</a></p>
-                        <p><strong>Adresse :</strong> Lotissemebt Arsat Lakbir, immeuble 16 le noble Etage 5 appartement 23</p>
-                    </div>
-                </div>
-            </section>
-
             <TestimonialsSection />
             <AppointmentSection />
             <FAQSection />

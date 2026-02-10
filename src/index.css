@@ -2766,35 +2766,6 @@ img {
   margin: 0 auto;
 }
 
-.about-rdv-section {
-  padding: 80px 0;
-  background-color: var(--bg-main);
-}
-
-.about-rdv-section .section-label {
-  margin-bottom: 12px;
-}
-
-.about-rdv-intro {
-  font-size: 16px;
-  color: var(--text-muted, #666);
-  margin-bottom: 24px;
-}
-
-.about-rdv-info {
-  font-size: 16px;
-  line-height: 2;
-}
-
-.about-rdv-info a {
-  color: var(--accent-orange);
-  text-decoration: none;
-}
-
-.about-rdv-info a:hover {
-  text-decoration: underline;
-}
-
 .mission-section {
   padding: 100px 0;
   background-color: var(--accent-sage);
@@ -2890,7 +2861,6 @@ img {
 .about-hero p,
 .about-detail-section,
 .about-deroulement-section,
-.about-rdv-section,
 .mission-section,
 .parcours-section {
   opacity: 0;
