@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SupportSection from './components/SupportSection';
 import ExpectationsSection from './components/ExpectationsSection';
-import AboutMeSection from './components/AboutMeSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import ServicesGrid from './components/ServicesGrid';
 import SessionProcessSection from './components/SessionProcessSection';
@@ -21,7 +20,6 @@ function HomePage() {
       <Hero />
       <SupportSection />
       <ExpectationsSection />
-      <AboutMeSection />
       <ServicesGrid />
       <TestimonialsSection />
       <SessionProcessSection />

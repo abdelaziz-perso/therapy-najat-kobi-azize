@@ -35,23 +35,11 @@ const AppointmentSection: React.FC = () => {
                     </div>
                     <h2 className="appointment-title">Prendre rdv</h2>
                     <p className="appointment-subtitle">
-                        Je vous propose différents espaces de rencontres, en présence ou à distance.
+                        Je vous reçois au cabinet à Casablanca.
                     </p>
                 </div>
 
                 <div className="appointment-cards">
-                    <div className="appointment-card online-card">
-                        <div className="card-icon-box">
-                            <i className="fas fa-laptop"></i>
-                        </div>
-                        <h3>En ligne</h3>
-                        <div className="card-divider"></div>
-                        <p>
-                            Peu importe votre localisation dans le monde, vous pouvez prendre rendez-vous lundi, mardi, mercredi, jeudi et samedi entre 10h et 17h.
-                        </p>
-                        <div className="card-divider"></div>
-                    </div>
-
                     <div className="appointment-card cabinet-card">
                         <div className="card-icon-box">
                             <i className="fas fa-location-dot"></i>

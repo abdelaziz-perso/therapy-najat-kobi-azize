@@ -18,12 +18,8 @@ const FAQSection: React.FC = () => {
             answer: "Les consultations sont proposées en français, arabe et anglais."
         },
         {
-            question: "Comment se déroulent les séances online ?",
-            answer: "Les séances en ligne se déroulent via une plateforme de visioconférence sécurisée. Vous recevrez un lien de connexion avant votre rendez-vous."
-        },
-        {
-            question: "Quel est le tarif d'une consultation, et quel est le moyen de payement que vous acceptez ?",
-            answer: "Le tarif varie selon le type de consultation. Nous acceptons les paiements par virement, carte bancaire ou espèces."
+            question: "Quel est le tarif d'une consultation, et quel est le moyen de paiement que vous acceptez ?",
+            answer: "Le tarif varie selon le type de consultation. Nous acceptons les paiements par virement, carte bancaire ou espèces. Les consultations ont lieu uniquement au cabinet (pas en ligne)."
         },
         {
             question: "Proposez-vous des tarifs réduits ?",

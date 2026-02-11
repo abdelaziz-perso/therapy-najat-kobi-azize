@@ -30,7 +30,6 @@ $email = filter_var(trim($data['email'] ?? ''), FILTER_SANITIZE_EMAIL);
 $phone = strip_tags(trim($data['phone'] ?? ''));
 $date = strip_tags(trim($data['date'] ?? ''));
 $time = strip_tags(trim($data['time'] ?? ''));
-$rdvType = strip_tags(trim($data['rdvType'] ?? ''));
 $message = strip_tags(trim($data['message'] ?? ''));
 
 if (empty($firstname) || empty($lastname) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -46,14 +45,11 @@ $from_email = 'contact@najatkobi-therapie.ma'; // adresse configurée sur Hostin
 $subject = "Nouveau message de contact - $firstname $lastname";
 $subject = "=?UTF-8?B?" . base64_encode($subject) . "?=";
 
-$rdvTypeLabel = $rdvType === 'online' ? 'En ligne' : ($rdvType === 'presentiel' ? 'Présentiel' : 'Non indiqué');
-
 $email_content = "Nom: $firstname $lastname\n";
 $email_content .= "Email: $email\n";
 $email_content .= "Téléphone: " . ($phone ?: 'Non fourni') . "\n";
 $email_content .= "Date souhaitée: " . ($date ?: 'Non fournie') . "\n";
-$email_content .= "Heure souhaitée: " . ($time ?: 'Non fournie') . "\n";
-$email_content .= "Type de rendez-vous: $rdvTypeLabel\n\n";
+$email_content .= "Heure souhaitée: " . ($time ?: 'Non fournie') . "\n\n";
 $email_content .= "Message:\n" . $message . "\n";
 
 $headers = "MIME-Version: 1.0\r\n";

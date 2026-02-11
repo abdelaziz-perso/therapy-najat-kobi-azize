@@ -802,7 +802,7 @@ img {
 /* Testimonials Section */
 /* Testimonials - Section 1: fond #EBE6E0 */
 .testimonials-section {
-  padding: 100px 0;
+  padding: 50px 0;
   background-color: var(--bg-main);
 }
 
@@ -814,7 +814,7 @@ img {
 
 .testimonials-header {
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
 
 .header-bg-image {
@@ -826,33 +826,33 @@ img {
 
 .header-bg-image img {
   width: 100%;
-  height: 400px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 16px;
 }
 
 .header-box {
   position: absolute;
-  bottom: -40px;
+  bottom: -28px;
   right: 15%;
   background-color: var(--accent-sage);
   color: var(--text-primary);
-  padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(174, 182, 163, 0.25);
+  padding: 18px 28px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(174, 182, 163, 0.25);
   text-align: center;
-  max-width: 450px;
+  max-width: 420px;
   z-index: 2;
 }
 
 .header-box h3 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .header-box p {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -862,7 +862,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding-top: 40px;
+  padding-top: 24px;
   position: relative;
 }
 
@@ -882,14 +882,14 @@ img {
 .testimonial-card {
   background-color: var(--bg-main);
   border: 1px solid var(--accent-muted);
-  padding: 30px;
-  border-radius: 20px;
+  padding: 20px;
+  border-radius: 16px;
   flex: 0 0 calc(33.333% - 20px);
   /* Show 3 cards at a time */
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
-  min-height: 380px;
+  min-height: 260px;
   transition: all 0.3s ease;
 }
 
@@ -901,20 +901,20 @@ img {
 .card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 12px;
   position: relative;
 }
 
 .quote-icon {
-  font-size: 24px;
+  font-size: 18px;
   color: #ddd;
   margin-right: auto;
 }
 
 .rating {
   color: #f1c40f;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .verified-icon {
@@ -927,13 +927,13 @@ img {
 }
 
 .card-body {
-  margin-bottom: 30px;
+  margin-bottom: 16px;
   flex-grow: 1;
 }
 
 .card-body p {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.5;
   color: #555;
 }
 
@@ -950,25 +950,25 @@ img {
 }
 
 .user-avatar {
-  width: 45px;
-  height: 45px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .user-info h4 {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #333;
 }
 
 .user-date {
-  font-size: 12px;
+  font-size: 11px;
   color: #999;
 }
 
@@ -987,7 +987,7 @@ img {
 }
 
 .pagination {
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 .dot {
@@ -2405,11 +2405,14 @@ img {
 
   .support-section,
   .about-me-section,
-  .testimonials-section,
   .session-process-section,
   .appointment-section,
   .faq-section {
     padding: 60px 0;
+  }
+
+  .testimonials-section {
+    padding: 40px 0;
   }
 
   .support-title {
@@ -2583,17 +2586,17 @@ img {
   }
 
   .header-box {
-    padding: 20px 24px;
+    padding: 14px 18px;
     right: 10%;
     left: 10%;
   }
 
   .header-box h3 {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .header-box p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .footer-newsletter {

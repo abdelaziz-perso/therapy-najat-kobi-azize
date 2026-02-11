@@ -9,7 +9,6 @@ const ContactSection: React.FC = () => {
         email: '',
         date: '',
         time: '',
-        rdvType: '' as '' | 'online' | 'presentiel',
         message: ''
     });
 
@@ -23,9 +22,6 @@ const ContactSection: React.FC = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
-    };
-    const handleRdvTypeChange = (value: 'online' | 'presentiel') => {
-        setFormData(prev => ({ ...prev, rdvType: value }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -61,7 +57,6 @@ const ContactSection: React.FC = () => {
                     email: '',
                     date: '',
                     time: '',
-                    rdvType: '',
                     message: ''
                 });
             } else {
@@ -153,31 +148,6 @@ const ContactSection: React.FC = () => {
                                         value={formData.time}
                                         onChange={handleChange}
                                     />
-                                </div>
-                            </div>
-                            <div className="form-group full-width form-group-rdv-type">
-                                <label>Type de rendez-vous</label>
-                                <div className="rdv-type-options">
-                                    <label className="rdv-type-option">
-                                        <input
-                                            type="radio"
-                                            name="rdvType"
-                                            value="online"
-                                            checked={formData.rdvType === 'online'}
-                                            onChange={() => handleRdvTypeChange('online')}
-                                        />
-                                        <span className="rdv-type-label">En ligne</span>
-                                    </label>
-                                    <label className="rdv-type-option">
-                                        <input
-                                            type="radio"
-                                            name="rdvType"
-                                            value="presentiel"
-                                            checked={formData.rdvType === 'presentiel'}
-                                            onChange={() => handleRdvTypeChange('presentiel')}
-                                        />
-                                        <span className="rdv-type-label">Présentiel</span>
-                                    </label>
                                 </div>
                             </div>
                             <div className="form-group full-width">
