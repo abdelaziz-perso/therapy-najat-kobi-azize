@@ -1,11 +1,24 @@
-# Canonical: redirect www to non-www (301)
+# ——— Accès et index ———
+# Éviter 403 : servir index.html pour la racine et les sous-chemins (SPA)
+DirectoryIndex index.html
+Options -Indexes
+
+# UTF-8
+AddDefaultCharset UTF-8
+
+# ——— Redirections ———
 RewriteEngine On
+RewriteBase /
+
+# Canonical: www → non-www (301)
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 
-# UTF-8 charset for HTML
-AddDefaultCharset UTF-8
+# SPA : tout chemin qui n’est pas un fichier réel → index.html (évite 403/404 sur /a-propos, etc.)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
 
-# Optional: force HTTPS (uncomment if your host doesn't force it)
+# Optional: force HTTPS (uncomment if your host doesn’t force it)
 # RewriteCond %{HTTPS} off
 # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
