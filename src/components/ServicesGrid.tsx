@@ -9,7 +9,7 @@ const ServicesGrid: React.FC = () => {
                 <div className="container">
                     <div className="story-grid">
                         <div className="story-content-side">
-                            <h2 className="story-title">Pourquoi la thérapie de couple ?</h2>
+                            <h2 className="story-title">Pourquoi la thérapie de couple{"\u00A0"}?</h2>
                             <div className="story-text-rich">
                                 <p>J’ai été biberonnée aux comédies romantiques et aux contes de fées. Les choses semblaient simples : on rencontrait quelqu’un on tombait amoureux et on vivait heureux.</p>
                                 <p>Deux décennies plus tard, je me retrouve en plein tsunami conjugal à la recherche d’un thérapeute pour sauver mon couple. Pour nous, il était trop tard, mais cette rencontre m’a permis de choisir ma spécialité : je serai thérapeute de couple.</p>

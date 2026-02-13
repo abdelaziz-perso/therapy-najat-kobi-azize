@@ -53,7 +53,7 @@ const AboutPage: React.FC = () => {
             <section className="about-detail-section" ref={addToRefs}>
                 <div className="container about-detail-container">
                     <div className="about-detail-text">
-                        <h2 className="section-label">Pourquoi j'ai choisi le couple ?</h2>
+                        <h2 className="section-label">Pourquoi j'ai choisi le couple{"\u00A0"}?</h2>
                         <p>
                             J'ai été biberonnée aux comédies romantiques et aux contes de fées. Comme beaucoup de jeunes filles de ma génération j'étais amoureuse de l'amour. Les choses semblaient simples : on rencontrait quelqu'un on tombait amoureux et on vivait heureux. Je n'étais pas stupide, je savais qu'il y aurait des obstacles, des crises… Mais à la fin l'amour triomphe toujours ! C'est ce que j'avais appris auprès de Cendrillon et de Maria (la mélodie du bonheur).
                         </p>

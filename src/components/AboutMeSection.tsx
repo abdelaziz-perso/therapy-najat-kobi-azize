@@ -31,7 +31,7 @@ const AboutMeSection: React.FC = () => {
         <section ref={sectionRef} id="a-propos" className="about-me-section">
             <div className="container about-me-container">
                 <div className="about-me-text">
-                    <h2 className="about-title">Pourquoi j'ai choisi le couple ?</h2>
+                    <h2 className="about-title">Pourquoi j'ai choisi le couple{"\u00A0"}?</h2>
                     <p className="about-description">
                         J'ai été biberonnée aux comédies romantiques et aux contes de fées. Comme beaucoup de jeunes filles de ma génération j'étais amoureuse de l'amour. Les choses semblaient simples : on rencontrait quelqu'un on tombait amoureux et on vivait heureux. Je n'étais pas stupide, je savais qu'il y aurait des obstacles, des crises… Mais à la fin l'amour triomphe toujours ! C'est ce que j'avais appris auprès de Cendrillon et de Maria (la mélodie du bonheur).
                     </p>

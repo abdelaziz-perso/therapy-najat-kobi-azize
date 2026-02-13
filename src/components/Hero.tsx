@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import heroBg from '../assets/najat-photo-02.jpeg';
 
 const Hero: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -8,7 +7,6 @@ const Hero: React.FC = () => {
         <section
             ref={sectionRef}
             className="hero video-hero-section"
-            style={{ backgroundImage: `url(${heroBg})` }}
         >
             <div className="video-hero-section__overlay" aria-hidden />
             <div className="container hero-content">
