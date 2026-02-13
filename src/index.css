@@ -13,6 +13,18 @@
   /* 6. Texte secondaire */
   --text-secondary: #45433F;
 
+  /* Logo colors (analyse image logo) */
+  --logo-bg: #ecebe6;
+  --logo-sage: #a2af9a;
+  --logo-gray-green: #798279;
+  --logo-taupe: #ddcdae;
+
+  /* Hero reference (Najat Kobi Therapy Practice) */
+  --hero-bg-primary: #ede8e3;
+  --hero-bg-sage: #aeb5a0;
+  --hero-bg-charcoal: #6b6e6c;
+  --hero-bg-beige: #d4c4ad;
+
   /* Legacy / compatibility */
   --primary-logo: var(--accent-sage);
   --secondary-logo: var(--accent-muted);
@@ -376,6 +388,173 @@ img {
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(135deg, var(--accent-sage) 0%, var(--accent-muted) 100%);
+}
+
+/* Hero: organic shapes (no logo in bg) + CSS logo + branding - ref Najat Kobi 2026 */
+.hero--logo-style {
+  background-color: var(--hero-bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-shape {
+  position: absolute;
+  border-radius: 50% 40% 45% 55%;
+  opacity: 0.9;
+  pointer-events: none;
+  animation: heroMorphShape 20s ease-in-out infinite;
+}
+
+.hero-bg-shape--1 {
+  width: 45vw;
+  height: 45vw;
+  max-width: 520px;
+  max-height: 520px;
+  background-color: var(--hero-bg-sage);
+  top: -15vw;
+  left: -10vw;
+  animation-delay: 0s;
+}
+
+.hero-bg-shape--2 {
+  width: 55vw;
+  height: 55vw;
+  max-width: 580px;
+  max-height: 580px;
+  background-color: var(--hero-bg-charcoal);
+  top: -10vw;
+  right: -5vw;
+  animation-delay: 3s;
+}
+
+.hero-bg-shape--3 {
+  width: 40vw;
+  height: 40vw;
+  max-width: 420px;
+  max-height: 420px;
+  background-color: var(--hero-bg-beige);
+  bottom: -10vw;
+  left: 5vw;
+  animation-delay: 6s;
+}
+
+.hero-bg-shape--4 {
+  width: 50vw;
+  height: 50vw;
+  max-width: 520px;
+  max-height: 520px;
+  background-color: var(--hero-bg-charcoal);
+  bottom: -15vw;
+  right: -10vw;
+  animation-delay: 9s;
+}
+
+.hero-bg-shape--5 {
+  width: 35vw;
+  height: 35vw;
+  max-width: 380px;
+  max-height: 380px;
+  background-color: var(--hero-bg-sage);
+  bottom: 10vw;
+  right: 20vw;
+  animation-delay: 12s;
+}
+
+@keyframes heroMorphShape {
+  0%, 100% {
+    border-radius: 50% 40% 45% 55%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 45% 55% 50% 40%;
+    transform: rotate(90deg) scale(1.05);
+  }
+  50% {
+    border-radius: 55% 45% 40% 50%;
+    transform: rotate(180deg) scale(0.95);
+  }
+  75% {
+    border-radius: 40% 50% 55% 45%;
+    transform: rotate(270deg) scale(1.02);
+  }
+}
+
+.hero--logo-style .hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 0 48px;
+  color: var(--text-primary);
+  animation: heroFadeIn 1.2s ease-out;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-branding {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero-branding__name {
+  font-size: 4.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  color: var(--text-primary);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.hero-branding__tagline {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 1.5rem;
+  font-family: Arial, sans-serif;
+}
+
+.hero--logo-style .hero-btn {
+  position: relative;
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-branding__name {
+    font-size: 3rem;
+  }
+
+  .hero-branding__tagline {
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .hero-branding__name {
+    font-size: 2.25rem;
+  }
+
+  .hero-branding__tagline {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+
 }
 
 /* Video hero: full-bleed background (gradient from logo) */
