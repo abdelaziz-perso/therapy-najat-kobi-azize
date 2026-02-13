@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ContactForm from './ContactForm';
 
 interface FAQItem {
     question: string;
@@ -11,10 +12,10 @@ const FAQSection: React.FC = () => {
     const faqData: FAQItem[] = [
         {
             question: "Comment puis-je prendre mon premier rendez-vous ?",
-            answer: "Lorsque vous cliquez sur le bouton « Prendre RDV », il vous dirigera directement vers le formulaire de contact, où vous pourrez nous envoyer votre demande de rendez-vous."
+            answer: "Lorsque vous cliquez sur le bouton « Prendre rendez-vous », il vous dirigera directement vers le formulaire de contact, où vous pourrez nous envoyer votre demande de rendez-vous."
         },
         {
-            question: "vous proposez vos services en quelles langues ?",
+            question: "Vous proposez vos services en quelles langues ?",
             answer: "Les consultations sont proposées en français, arabe et anglais."
         },
         {
@@ -34,6 +35,9 @@ const FAQSection: React.FC = () => {
     return (
         <section className="faq-section">
             <div className="container">
+                <div id="contact" className="faq-form-wrapper">
+                    <ContactForm />
+                </div>
                 <h2 className="faq-title">Comment pouvons-nous vous aider ?</h2>
                 <div className="faq-container">
                     {faqData.map((item, index) => (

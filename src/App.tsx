@@ -6,7 +6,6 @@ import Hero from './components/Hero';
 import SupportSection from './components/SupportSection';
 import ExpectationsSection from './components/ExpectationsSection';
 import TestimonialsSection from './components/TestimonialsSection';
-import GallerySection from './components/GallerySection';
 import ServicesGrid from './components/ServicesGrid';
 import SessionProcessSection from './components/SessionProcessSection';
 import AppointmentSection from './components/AppointmentSection';
@@ -25,7 +24,6 @@ function HomePage() {
       <ExpectationsSection />
       <ServicesGrid />
       <TestimonialsSection />
-      <GallerySection />
       <SessionProcessSection />
       <AppointmentSection />
       <FAQSection />

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import testimonialBg from '../assets/depressed-woman-having-psychotherapy-session-doctor-s-office.jpg';
+import testimonialBg from '../assets/najat-photo-08.jpeg';
 
 const TestimonialsSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -34,7 +34,7 @@ const TestimonialsSection: React.FC = () => {
             id: 4,
             name: 'Témoignage 4',
             date: '',
-            text: "J'ai eu l'occasion de suivre une séance de thérapie de couple en compagnie de mon épouse avec Madame Kobi. Cette séance nous a « fait du bien » même si Mme Kobi n'a pas de « baguette magique » et que tous les problèmes ne se règleront jamais à travers une seule séance de thérapie. En revanche, j'ai apprécié à sa juste valeur la démarche non intrusive ni « commerciale » de Mme Kobi. Elle nous a tout de suite mis à l'aise en nous expliquant qu'elle n'était pas là pour nous voir et revoir à l'infini, au contraire, son objectif est que chaque couple se sente libre de la consulter ou pas en fonction de « où en est le couple », parfois une seule séance peut suffire à remettre certains sujets « sur les rails », parfois il est trop tard, parfois il faut revenir pour aller + en profondeur… Chaque cas a ses spécificités, et Mme Kobi l'a bien compris et en tient compte dans ses thérapies. Je recommande en tous les cas, et quoiqu'il en soit il faut que le « fit » soit là, cela dépend de tout en chacun.",
+            text: "J'ai eu l'occasion de suivre une séance de thérapie de couple en compagnie de mon épouse avec Madame Kobi. Cette séance nous a « fait du bien » même si Mme Kobi n'a pas de « baguette magique » et que tous les problèmes ne se régleront jamais à travers une seule séance de thérapie. En revanche, j'ai apprécié à sa juste valeur la démarche non intrusive ni « commerciale » de Mme Kobi. Elle nous a tout de suite mis à l'aise en nous expliquant qu'elle n'était pas là pour nous voir et revoir à l'infini, au contraire, son objectif est que chaque couple se sente libre de la consulter ou pas en fonction de « où en est le couple », parfois une seule séance peut suffire à remettre certains sujets « sur les rails », parfois il est trop tard, parfois il faut revenir pour aller + en profondeur… Chaque cas a ses spécificités, et Mme Kobi l'a bien compris et en tient compte dans ses thérapies. Je recommande en tous les cas, et quoiqu'il en soit il faut que le « fit » soit là, cela dépend de tout un chacun.",
             initial: '4',
             color: '#f39c12'
         },
@@ -42,7 +42,7 @@ const TestimonialsSection: React.FC = () => {
             id: 5,
             name: 'Témoignage 5',
             date: '',
-            text: "Lors d'une période forte en tensions, mon mari et moi sommes allés voir Najat afin de nous aider à y voir plus clair. La première chose qui m'a marquée chez Najat c'est son enthousiasme, autrement dit sa « good vibe ». Elle nous a tout de suite mit à l'aise, car il faut le dire, ce n'était pas une démarche facile pour nous: parler à une inconnue de nos soucis de couple. Une seule séance a suffi pour que l'on prenne conscience des choses sur lesquelles nous devions travailler, mais aussi les choses sur lesquelles nous devions lâcher prise. Najat nous a aidé à relativiser. C'était donc une thérapie très courte mais très pertinente. J'ai apprécié son honnêteté et sa spontanéité.",
+            text: "Lors d'une période forte en tensions, mon mari et moi sommes allés voir Najat afin de nous aider à y voir plus clair. La première chose qui m'a marquée chez Najat c'est son enthousiasme, autrement dit sa « good vibe ». Elle nous a tout de suite mis à l'aise, car il faut le dire, ce n'était pas une démarche facile pour nous: parler à une inconnue de nos soucis de couple. Une seule séance a suffi pour que l'on prenne conscience des choses sur lesquelles nous devions travailler, mais aussi les choses sur lesquelles nous devions lâcher prise. Najat nous a aidé à relativiser. C'était donc une thérapie très courte mais très pertinente. J'ai apprécié son honnêteté et sa spontanéité.",
             initial: '5',
             color: '#9b59b6'
         }

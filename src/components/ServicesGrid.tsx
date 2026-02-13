@@ -1,5 +1,5 @@
 import React from 'react';
-import imgCouple from '../assets/therapie_couple.jpg';
+import imgCouple from '../assets/smiling-couple.png';
 
 const ServicesGrid: React.FC = () => {
     return (

@@ -39,7 +39,7 @@ if (empty($firstname) || empty($lastname) || empty($message) || !filter_var($ema
 }
 
 // Comme taxi-em-azize : From domaine + Return-Path + -f pour la délivrabilité
-$to_email = 'najatkobi7@gmail.com';
+$to_email = 'abdelaziz.e.perso@gmail.com';
 $from_email = 'contact@najatkobi-therapie.ma'; // adresse configurée sur Hostinger
 
 $subject = "Nouveau message de contact - $firstname $lastname";

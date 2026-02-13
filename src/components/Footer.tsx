@@ -23,9 +23,9 @@ const Footer: React.FC = () => {
                     <div className="footer-column">
                         <h4 className="footer-heading">PAGES</h4>
                         <ul className="footer-list check-list">
-                            <li><i className="fas fa-check"></i> <Link to="/">D'accueil</Link></li>
-                            <li><i className="fas fa-check"></i> <Link to="/a-propos">A propos</Link></li>
-                            <li><i className="fas fa-check"></i> <a href="/#contact">Prendre RDV</a></li>
+                            <li><i className="fas fa-check"></i> <Link to="/">Accueil</Link></li>
+                            <li><i className="fas fa-check"></i> <Link to="/a-propos">À propos</Link></li>
+                            <li><i className="fas fa-check"></i> <a href="/#contact">Prendre rendez-vous</a></li>
                         </ul>
                     </div>
                 </div>

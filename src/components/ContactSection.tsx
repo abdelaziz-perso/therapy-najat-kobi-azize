@@ -1,237 +1,84 @@
-import React, { useState } from 'react';
+import React from 'react';
 import contactBg from '../assets/doctor-offering-medical-teleconsultation.jpg';
 
 const ContactSection: React.FC = () => {
-    const [formData, setFormData] = useState({
-        firstname: '',
-        lastname: '',
-        phone: '',
-        email: '',
-        date: '',
-        time: '',
-        message: ''
-    });
-
-    const [status, setStatus] = useState<{
-        type: 'success' | 'error' | null;
-        message: string;
-    }>({ type: null, message: '' });
-
-    const [loading, setLoading] = useState(false);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
-        setStatus({ type: null, message: '' });
-
-        try {
-            const response = await fetch('/send_email.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            const text = await response.text();
-            let result: { success?: boolean; message?: string };
-            try {
-                result = text ? JSON.parse(text) : {};
-            } catch {
-                result = {};
-            }
-
-            const message = result.message || (response.ok ? 'Merci ! Votre message a été envoyé.' : 'Une erreur est survenue.');
-
-            if (response.ok && result.success !== false) {
-                setStatus({ type: 'success', message });
-                setFormData({
-                    firstname: '',
-                    lastname: '',
-                    phone: '',
-                    email: '',
-                    date: '',
-                    time: '',
-                    message: ''
-                });
-            } else {
-                setStatus({ type: 'error', message });
-            }
-        } catch {
-            setStatus({ type: 'error', message: 'Impossible de contacter le serveur. Vérifiez votre connexion.' });
-        } finally {
-            setLoading(false);
-        }
-    };
-
     return (
-        <section id="contact" className="contact-section" style={{ backgroundImage: `url(${contactBg})` }}>
+        <section id="coordonnees" className="contact-section" style={{ backgroundImage: `url(${contactBg})` }}>
             <div className="contact-overlay"></div>
             <div className="container contact-container">
                 <div className="contact-header">
                     <span className="contact-label">CONTACT</span>
-                    <h2 className="contact-title">Une Demande ? Une Question ?</h2>
                 </div>
 
-                <div className="contact-card">
-                    <div className="contact-form-side">
-                        <form className="contact-form" onSubmit={handleSubmit}>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label>Prénom</label>
-                                    <input
-                                        type="text"
-                                        name="firstname"
-                                        placeholder="Prénom"
-                                        value={formData.firstname}
-                                        onChange={handleChange}
-                                        required
-                                    />
+                <div className="contact-card contact-card--info-only">
+                    <div className="contact-info-side contact-info-two-cols">
+                        <div className="contact-block contact-block--reach">
+                            <div className="contact-info-header">
+                                <h3 className="contact-info-title">Prendre rendez-vous</h3>
+                                <p className="contact-info-intro">Par téléphone ou par mail</p>
+                            </div>
+                            <div className="info-items">
+                                <div className="info-item">
+                                    <div className="info-icon">
+                                        <i className="fas fa-phone"></i>
+                                    </div>
+                                    <div className="info-text">
+                                        <span className="info-label">TEL</span>
+                                        <a href="tel:+212661338197" className="info-value">06.61.33.81.97</a>
+                                    </div>
                                 </div>
-                                <div className="form-group">
-                                    <label>Nom</label>
-                                    <input
-                                        type="text"
-                                        name="lastname"
-                                        placeholder="Nom"
-                                        value={formData.lastname}
-                                        onChange={handleChange}
-                                        required
-                                    />
+                                <div className="info-item">
+                                    <div className="info-icon">
+                                        <i className="fas fa-envelope"></i>
+                                    </div>
+                                    <div className="info-text">
+                                        <span className="info-label">MAIL</span>
+                                        <a href="mailto:najatkobi7@gmail.com" className="info-value">najatkobi7@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div className="info-item">
+                                    <div className="info-icon">
+                                        <i className="fab fa-instagram"></i>
+                                    </div>
+                                    <div className="info-text">
+                                        <span className="info-label">INSTA</span>
+                                        <a href="https://www.instagram.com/kobi.najat/" target="_blank" rel="noopener noreferrer" className="info-value">kobi.najat</a>
+                                    </div>
+                                </div>
+                                <div className="info-item">
+                                    <div className="info-icon">
+                                        <i className="fas fa-clock"></i>
+                                    </div>
+                                    <div className="info-text">
+                                        <span className="info-label">HORAIRES</span>
+                                        <span className="info-value info-hours">
+                                            Lundi 10h–20h · Mardi 10h–20h · Mercredi 10h–20h · Jeudi 10h–20h · Vendredi 10h–20h · Samedi 10h–14h · Dimanche fermé
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label>Téléphone</label>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        placeholder="Téléphone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="Email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label>Date</label>
-                                    <input
-                                        type="date"
-                                        name="date"
-                                        placeholder="jj/mm/aaaa"
-                                        value={formData.date}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Temps</label>
-                                    <input
-                                        type="time"
-                                        name="time"
-                                        placeholder="--:--"
-                                        value={formData.time}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-group full-width">
-                                <label>Message</label>
-                                <textarea
-                                    name="message"
-                                    placeholder="Message"
-                                    rows={4}
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    required
-                                ></textarea>
-                            </div>
+                        </div>
 
-                            {status.type && (
-                                <div className={`form-status ${status.type}`}>
-                                    <i className={status.type === 'success' ? 'fas fa-circle-check' : 'fas fa-circle-exclamation'}></i>
-                                    <span>{status.message}</span>
-                                </div>
-                            )}
-
-                            <button type="submit" className="btn-send" disabled={loading}>
-                                {loading ? 'Envoi...' : 'envoyer'}
-                            </button>
-                        </form>
-                    </div>
-
-                    <div className="contact-info-side">
-                        <h3>Prendre rdv</h3>
-                        <p className="info-intro">Par téléphone ou par mail</p>
-
-                        <div className="info-items">
-                            <div className="info-item">
-                                <div className="info-icon">
-                                    <i className="fas fa-phone"></i>
-                                </div>
-                                <div className="info-text">
-                                    <span className="info-label">TEL</span>
-                                    <a href="tel:+212661338197" className="info-value">06.61.33.81.97</a>
-                                </div>
-                            </div>
-
-                            <div className="info-item">
-                                <div className="info-icon">
-                                    <i className="fas fa-envelope"></i>
-                                </div>
-                                <div className="info-text">
-                                    <span className="info-label">MAIL</span>
-                                    <a href="mailto:najatkobi7@gmail.com" className="info-value">najatkobi7@gmail.com</a>
-                                </div>
-                            </div>
-
-                            <div className="info-item">
-                                <div className="info-icon">
-                                    <i className="fab fa-instagram"></i>
-                                </div>
-                                <div className="info-text">
-                                    <span className="info-label">INSTA</span>
-                                    <a href="https://www.instagram.com/kobi.najat/" target="_blank" rel="noopener noreferrer" className="info-value">kobi.najat</a>
-                                </div>
-                            </div>
-
+                        <div className="contact-block contact-block--place">
                             <div className="info-item">
                                 <div className="info-icon">
                                     <i className="fas fa-location-dot"></i>
                                 </div>
                                 <div className="info-text">
                                     <span className="info-label">ADRESSE</span>
-                                    <span className="info-value">Lotissemebt Arsat Lakbir, immeuble 16 le noble Etage 5 appartement 23</span>
+                                    <span className="info-value">Lotissement Arsat Lakbir, immeuble 16 au noble étage 5 appartement 23</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="contact-map">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3099.015120109924!2d-7.646187500000001!3d33.5771875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd14f48a9011%3A0x7b92e3999875894a!2sNajat%20Kobi%20%E2%80%93%20Th%C3%A9rapie%20Conjugale%20%C3%A0%20Casablanca!5e1!3m2!1sen!2sma!4v1770743370994!5m2!1sen!2sma"
-                                width="400"
-                                height="300"
-                                style={{ border: 0 }}
-                                allowFullScreen
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="Najat Kobi – Thérapie Conjugale à Casablanca"
-                            />
+                            <div className="contact-map">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3099.015120109924!2d-7.646187500000001!3d33.5771875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd14f48a9011%3A0x7b92e3999875894a!2sNajat%20Kobi%20%E2%80%93%20Th%C3%A9rapie%20Conjugale%20%C3%A0%20Casablanca!5e1!3m2!1sen!2sma!4v1770743370994!5m2!1sen!2sma"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Najat Kobi – Thérapie Conjugale à Casablanca"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

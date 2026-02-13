@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
 import imgLarge from '../assets/najat-photo-02.jpeg';
-import imgTopRight from '../assets/najat-photo-04.jpeg';
-import imgBottomRight from '../assets/najat-photo-13.jpeg';
+import supportVideo from '../assets/video-hero-section.mov';
 
 const SupportSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isMuted, setIsMuted] = useState(true);
 
     useEffect(() => {
         const node = sectionRef.current;
@@ -28,6 +29,36 @@ const SupportSection: React.FC = () => {
             }
         };
     }, []);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+        const onPlay = () => setIsPlaying(true);
+        const onPause = () => setIsPlaying(false);
+        video.addEventListener('play', onPlay);
+        video.addEventListener('pause', onPause);
+        return () => {
+            video.removeEventListener('play', onPlay);
+            video.removeEventListener('pause', onPause);
+        };
+    }, []);
+
+    const togglePlay = () => {
+        const video = videoRef.current;
+        if (!video) return;
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    };
+
+    const toggleMute = () => {
+        const video = videoRef.current;
+        if (!video) return;
+        video.muted = !video.muted;
+        setIsMuted(video.muted);
+    };
 
     return (
         <section ref={sectionRef} className="support-section">
@@ -52,11 +83,6 @@ const SupportSection: React.FC = () => {
                         <li>Sentiment de solitude à deux</li>
                         <li>Incertitude sur l'avenir de la relation</li>
                     </ul>
-                    <p className="support-cta">
-                        <Link to="/a-propos">Mon approche pour vous</Link>
-                        {' · '}
-                        <a href="/#contact">Prendre rendez-vous</a>
-                    </p>
                 </div>
 
                 <div className="support-images">
@@ -64,11 +90,34 @@ const SupportSection: React.FC = () => {
                         <img src={imgLarge} alt="Couple en discussion constructive" loading="lazy" decoding="async" />
                     </div>
                     <div className="image-stack">
-                        <div className="image-small">
-                            <img src={imgTopRight} alt="Thérapie de couple" loading="lazy" decoding="async" />
-                        </div>
-                        <div className="image-small">
-                            <img src={imgBottomRight} alt="Accompagnement de couple" loading="lazy" decoding="async" />
+                        <div className="image-small image-small--single support-video-wrap">
+                            <video
+                                ref={videoRef}
+                                src={supportVideo}
+                                loop
+                                playsInline
+                                preload="auto"
+                                muted={isMuted}
+                                aria-label="Thérapie de couple"
+                            />
+                            <div className="support-video-controls">
+                                <button
+                                    type="button"
+                                    className="support-video-btn"
+                                    onClick={togglePlay}
+                                    aria-label={isPlaying ? 'Pause' : 'Lecture'}
+                                >
+                                    <i className={`fas fa-${isPlaying ? 'pause' : 'play'}`} />
+                                </button>
+                                <button
+                                    type="button"
+                                    className="support-video-btn"
+                                    onClick={toggleMute}
+                                    aria-label={isMuted ? 'Activer le son' : 'Couper le son'}
+                                >
+                                    <i className={`fas fa-volume-${isMuted ? 'mute' : 'up'}`} />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

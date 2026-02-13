@@ -35,10 +35,10 @@ const Navbar: React.FC = () => {
 
                 <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
                     <li><Link to="/" className={isHome ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Accueil</Link></li>
-                    <li><Link to="/a-propos" className={location.pathname === '/a-propos' ? "active" : ""} onClick={() => setIsMenuOpen(false)}>A propos</Link></li>
+                    <li><Link to="/a-propos" className={location.pathname === '/a-propos' ? "active" : ""} onClick={() => setIsMenuOpen(false)}>À propos</Link></li>
                     <li><Link to="/#deroulement" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleLinkClick(e, 'deroulement')}>Déroulement</Link></li>
                     <li><Link to="/#services" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleLinkClick(e, 'services')}>consultations</Link></li>
-                    <li><Link to="/#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleLinkClick(e, 'contact')}>Prendre RDV</Link></li>
+                    <li><Link to="/#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleLinkClick(e, 'contact')}>Prendre rendez-vous</Link></li>
                 </ul>
 
                 <div className={`social-icons ${isMenuOpen ? 'active' : ''}`}>

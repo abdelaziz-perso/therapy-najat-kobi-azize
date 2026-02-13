@@ -39,7 +39,7 @@ const SessionProcessSection: React.FC = () => {
                                 <h3>Première séance (environ 1h30)</h3>
                             </div>
                             <div className="step-card-text">
-                                <p>Je reçois les conjoints ensemble pour une première séance qui dure à peu près 1h30. J’apprends à vous connaitre individuellement puis ensuite je m’intéresse à mon vrai client qui est votre couple.</p>
+                                <p>Je reçois les conjoints ensemble pour une première séance qui dure à peu près 1h30. J’apprends à vous connaître individuellement puis ensuite je m’intéresse à mon vrai client qui est votre couple.</p>
                             </div>
                         </div>
                     </div>

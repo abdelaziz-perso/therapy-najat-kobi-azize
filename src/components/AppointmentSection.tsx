@@ -33,7 +33,7 @@ const AppointmentSection: React.FC = () => {
                         <i className="fas fa-sparkles"></i>
                         <i className="fas fa-wand-magic-sparkles"></i>
                     </div>
-                    <h2 className="appointment-title">Prendre rdv</h2>
+                    <h2 className="appointment-title">Prendre rendez-vous</h2>
                     <p className="appointment-subtitle">
                         Je vous reçois au cabinet à Casablanca.
                     </p>
@@ -47,7 +47,7 @@ const AppointmentSection: React.FC = () => {
                         <h3>Au cabinet</h3>
                         <div className="card-divider"></div>
                         <div className="cabinet-info">
-                            <p>Le cabinet est situé au Lotissemebt Arsat Lakbir, immeuble 16 le noble Etage 5 appartement 23.</p>
+                            <p>Le cabinet est situé au lotissement Arsat Lakbir, immeuble 16 au noble étage 5 appartement 23.</p>
                             <div className="cabinet-map">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3099.015120109924!2d-7.646187500000001!3d33.5771875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd14f48a9011%3A0x7b92e3999875894a!2sNajat%20Kobi%20%E2%80%93%20Th%C3%A9rapie%20Conjugale%20%C3%A0%20Casablanca!5e1!3m2!1sen!2sma!4v1770743370994!5m2!1sen!2sma"
@@ -61,7 +61,7 @@ const AppointmentSection: React.FC = () => {
                                 />
                             </div>
                             <p>
-                                Vous pouvez prendre rendez-vous lundi, mardi, mercredi, jeudi et samedi entre 10h et 17h.
+                                Vous pouvez prendre rendez-vous du lundi au vendredi 10h–20h, et le samedi 10h–14h. Dimanche fermé.
                             </p>
                         </div>
                         <div className="card-divider"></div>
@@ -69,7 +69,7 @@ const AppointmentSection: React.FC = () => {
                 </div>
 
                 <div className="appointment-footer">
-                    <a href="#contact" className="btn-outline">Prendre RDV</a>
+                    <a href="#contact" className="btn-outline">Prendre rendez-vous</a>
                 </div>
             </div>
         </section>

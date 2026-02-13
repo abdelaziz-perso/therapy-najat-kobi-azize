@@ -46,7 +46,7 @@ const AboutPage: React.FC = () => {
                 <div className="container about-hero-content">
                     <h1>Najat KOBI</h1>
                     <p ref={addToRefs}>Thérapeute de couple</p>
-                    <Link to="/#contact" className="btn-primary" style={{ marginTop: '1rem' }}>Prendre RDV</Link>
+                    <Link to="/#contact" className="btn-primary" style={{ marginTop: '1rem' }}>Prendre rendez-vous</Link>
                 </div>
             </section>
 
@@ -86,7 +86,7 @@ const AboutPage: React.FC = () => {
                             <div className="step-number-circle">1</div>
                             <div className="step-card-content">
                                 <h3>Première séance (environ 1h30)</h3>
-                                <p>Je reçois les conjoints ensemble pour une première séance qui dure à peu près 1h30. J'apprends à vous connaitre individuellement puis ensuite je m'intéresse à mon vrai client qui est votre couple.</p>
+                                <p>Je reçois les conjoints ensemble pour une première séance qui dure à peu près 1h30. J'apprends à vous connaître individuellement puis ensuite je m'intéresse à mon vrai client qui est votre couple.</p>
                             </div>
                         </div>
                         <div className="process-step-card">
