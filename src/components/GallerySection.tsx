@@ -47,7 +47,9 @@ const GallerySection: React.FC = () => {
             { threshold: 0.1 }
         );
         if (node) observer.observe(node);
-        return () => node && observer.unobserve(node);
+        return () => {
+            if (node) observer.unobserve(node);
+        };
     }, []);
 
     return (

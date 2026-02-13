@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import heroVideo from '../assets/video-hero-section.mp4';
+import heroVideo from '../assets/video-hero-section.mov';
 
 type VideoOrientation = 'landscape' | 'portrait' | 'square';
 
