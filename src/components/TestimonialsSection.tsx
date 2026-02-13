@@ -71,21 +71,35 @@ const TestimonialsSection: React.FC = () => {
     }, []);
 
     const [itemsPerView, setItemsPerView] = React.useState(window.innerWidth <= 768 ? 1 : 3);
+    const [isPaused, setIsPaused] = React.useState(false);
+    const maxIndex = Math.max(0, testimonials.length - itemsPerView);
 
     useEffect(() => {
         const handleResize = () => {
-            setItemsPerView(window.innerWidth <= 768 ? 1 : 3);
+            const w = window.innerWidth;
+            const next = w <= 768 ? 1 : 3;
+            setItemsPerView(next);
+            setCurrentIndex((i) => Math.min(i, Math.max(0, testimonials.length - next)));
         };
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    }, [testimonials.length]);
+
+    useEffect(() => {
+        if (maxIndex <= 0 || isPaused) return;
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [maxIndex, isPaused]);
 
     const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % (testimonials.length - (itemsPerView - 1)));
+        setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + (testimonials.length - (itemsPerView - 1))) % (testimonials.length - (itemsPerView - 1)));
+        setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
     };
 
     return (
@@ -101,13 +115,17 @@ const TestimonialsSection: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="testimonials-grid-container">
-                    <button className="nav-btn prev" onClick={prevSlide}><i className="fas fa-chevron-left"></i></button>
+                <div
+                    className="testimonials-grid-container"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                >
+                    <button className="nav-btn prev" onClick={prevSlide} aria-label="Témoignage précédent"><i className="fas fa-chevron-left"></i></button>
 
                     <div className="cards-viewport">
                         <div
-                            className="cards-slider"
-                            style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+                            className="cards-slider cards-slider--auto"
+                            style={{ transform: `translateX(-${currentIndex * (100 / testimonials.length)}%)` }}
                         >
                             {testimonials.map((t) => (
                                 <div key={t.id} className="testimonial-card">
@@ -121,7 +139,7 @@ const TestimonialsSection: React.FC = () => {
                                             <i className="fas fa-star"></i>
                                         </div>
                                         <div className="verified-icon"><i className="fas fa-check-circle"></i></div>
-                                        <div className="google-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="18" /></div>
+                                        <div className="google-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="18" loading="lazy" decoding="async" /></div>
                                     </div>
                                     <div className="card-body">
                                         <p>{t.text}</p>
@@ -144,7 +162,7 @@ const TestimonialsSection: React.FC = () => {
                 </div>
 
                 <div className="pagination">
-                    {Array.from({ length: testimonials.length - (itemsPerView - 1) }).map((_, i) => (
+                    {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                         <span
                             key={i}
                             className={`dot ${currentIndex === i ? 'active' : ''}`}

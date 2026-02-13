@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import imgLarge from '../assets/authentic-scene-young-person-undergoing-psychological-therapy.jpg';
-import imgTopRight from '../assets/medium-shot-couple-therapy.jpg';
-import imgBottomRight from '../assets/close-up-girl-therapy-session-with-parents.jpg';
+import imgLarge from '../assets/najat-photo-02.jpeg';
+import imgTopRight from '../assets/najat-photo-04.jpeg';
+import imgBottomRight from '../assets/najat-photo-13.jpeg';
 
 const SupportSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);

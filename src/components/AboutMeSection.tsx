@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import psychologistImg from '../assets/full-shot-psychologist-her-office.jpg';
+import psychologistImg from '../assets/najat-photo-04.jpeg';
 
 const AboutMeSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);

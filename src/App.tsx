@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MaintenancePage from './components/MaintenancePage';
 import Navbar from './components/Navbar';
@@ -5,14 +6,16 @@ import Hero from './components/Hero';
 import SupportSection from './components/SupportSection';
 import ExpectationsSection from './components/ExpectationsSection';
 import TestimonialsSection from './components/TestimonialsSection';
+import GallerySection from './components/GallerySection';
 import ServicesGrid from './components/ServicesGrid';
 import SessionProcessSection from './components/SessionProcessSection';
 import AppointmentSection from './components/AppointmentSection';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import AboutPage from './pages/AboutPage';
 import ScrollToTop from './components/ScrollToTop';
+
+const AboutPage = lazy(() => import('./pages/AboutPage'));
 
 function HomePage() {
   return (
@@ -22,6 +25,7 @@ function HomePage() {
       <ExpectationsSection />
       <ServicesGrid />
       <TestimonialsSection />
+      <GallerySection />
       <SessionProcessSection />
       <AppointmentSection />
       <FAQSection />
@@ -45,7 +49,14 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/a-propos" element={<AboutPage />} />
+          <Route
+            path="/a-propos"
+            element={
+              <Suspense fallback={<div className="page-loading" aria-busy="true">Chargement…</div>}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
         </Routes>
         <Footer />
       </div>

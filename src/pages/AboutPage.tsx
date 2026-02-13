@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import portraitImg from '../assets/full-shot-psychologist-her-office.jpg';
+import portraitImg from '../assets/najat-photo-04.jpeg';
+import portraitImg2 from '../assets/najat-photo-13.jpeg';
 import TestimonialsSection from '../components/TestimonialsSection';
 import AppointmentSection from '../components/AppointmentSection';
 import FAQSection from '../components/FAQSection';
@@ -70,8 +71,9 @@ const AboutPage: React.FC = () => {
                         </ul>
                         <p>Et évidemment je n'ai pas l'intention de m'arrêter en si bon chemin, quand on aime on ne compte pas !</p>
                     </div>
-                    <div className="about-detail-image">
-                        <img src={portraitImg} alt="Najat Kobi - Thérapeute de couple" loading="lazy" decoding="async" />
+                    <div className="about-detail-images">
+                        <img src={portraitImg} alt="Najat Kobi - Thérapeute de couple" loading="lazy" decoding="async" className="about-detail-img about-detail-img--main" />
+                        <img src={portraitImg2} alt="Najat Kobi - Cabinet thérapie de couple" loading="lazy" decoding="async" className="about-detail-img about-detail-img--secondary" />
                     </div>
                 </div>
             </section>
