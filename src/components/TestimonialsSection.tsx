@@ -18,7 +18,7 @@ const TestimonialsSection: React.FC = () => {
             id: 2,
             name: 'Témoignage 2',
             date: '',
-            text: "Je recommande vivement Najat pour toute personne à la recherche d'une psychologue bienveillante à l'écoute et profondément humaine, dès les premières séances je me suis sentie en confiance sans jugement. Elle a su m'accompagner avec beaucoup de justesse, d'empathie et de professionnalisme.",
+            text: "Je recommande vivement Najat pour toute personne à la recherche d'une thérapeute bienveillante à l'écoute et profondément humaine, dès les premières séances je me suis sentie en confiance sans jugement. Elle a su m'accompagner avec beaucoup de justesse, d'empathie et de professionnalisme.",
             initial: '2',
             color: '#2ecc71'
         },
